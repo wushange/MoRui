@@ -4,7 +4,6 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -21,8 +20,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.blankj.utilcode.util.LogUtils;
-import com.blankj.utilcode.util.StringUtils;
 import com.orhanobut.logger.Logger;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
@@ -33,7 +30,6 @@ import java.io.File;
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import cn.connxun.morui.R;
 import cn.connxun.morui.components.rxjava.RxUtil;
 import cn.connxun.morui.constants.enums.TASKSUB_CHECK_RESULT;
@@ -251,10 +247,10 @@ public class TaskStepActivity extends BaseSwipeBackActivity implements TaskStepC
             String imgPath = RxGalleryFinalApi.fileImagePath.getPath();
             Logger.e("拍照OK，图片路径:" + imgPath);
             Toast("采集照片成功！");
+            btnReTakephotp.setVisibility(View.VISIBLE);
             RxUtil.runOnIoThreadTask().observeOn(AndroidSchedulers.mainThread()).subscribe(o -> {
                 ivTaksImg.setImageURI(Uri.fromFile(new File(imgPath)));
                 mTask.setFilePath(ImageUtils.bitmapToString(imgPath));
-//                presenter.checkTask();
             });
             RxGalleryFinalApi.openZKCameraForResult(this, strings -> Logger.e(String.format("拍照成功,图片存储路径:%s", strings[0])));
 
@@ -272,11 +268,12 @@ public class TaskStepActivity extends BaseSwipeBackActivity implements TaskStepC
     public void renderTaskView(String total, TaskSub allotTaskSubListBean) {
         mTask = null;
         mTask = allotTaskSubListBean;
-        mTask.setCheckResultValue(TASKSUB_SUBJECTIVEJUDMENT.NORMAL.value() + "");
-        mTask.setCheckResult(TASKSUB_CHECK_RESULT.NORMAL.value() + "");
         tvTagsPos.setText(mTask.getDisplayOrder() + "");
         tvTagsSize.setText(total);
         tvTagName.setText(mTask.getEquipmentName() + "-" + mTask.getPointName());
+        if (mTask.getFilePath() != null) {
+            ivTaksImg.setImageBitmap(ImageUtils.stringtoBitmap(mTask.getFilePath()));
+        }
         etTagResult.setText(mTask.getCheckResultValue());
         etTagResult.addTextChangedListener(new TextWatcher() {
             @Override
@@ -340,83 +337,5 @@ public class TaskStepActivity extends BaseSwipeBackActivity implements TaskStepC
             }
         }
     };
-    TextWatcher                        textWather      = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-        }
 
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-
-            if (StringUtils.isEmpty(s.toString())) {
-                return;
-            }
-            double input;
-            try {
-                input = Double.valueOf(s.toString());
-            } catch (NumberFormatException e) {
-                input = 0; // your default value
-            }
-            LogUtils.e(
-                    "--input--" + input
-                            + "\n--Stand--" + mTask.getStandardValue()
-                            + "\n--Red--" + mTask.getRedWarning()
-                            + "\n--Yello--" + mTask.getYellowWarning()
-                            + "\n--Origen--" + mTask.getOrangeWarning()
-                            + "\n--MinValue--" + mTask.getMinValue()
-                            + "\n--MaxValue--" + mTask.getBigValue());
-            if (rangeInDefined(input, Integer.parseInt(mTask.getBigValue()), Integer.parseInt(mTask.getRedWarning()))) {
-                etTagResult.setTextColor(Color.RED);
-                mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
-                LogUtils.e("红"); //红 max-red
-            }
-            if (rangeInDefined(input, Integer.parseInt(mTask.getRedWarning()), Integer.parseInt(mTask.getOrangeWarning()))) {
-                etTagResult.setTextColor(getResources().getColor(R.color.nocheck));
-                mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
-                LogUtils.e("橙"); //橙 red-org
-            }
-            if (rangeInDefined(input, Integer.parseInt(mTask.getOrangeWarning()), Integer.parseInt(mTask.getYellowWarning()))) {
-                etTagResult.setTextColor(Color.YELLOW);
-                mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
-                LogUtils.e("黄"); //黄 org-yello
-            }
-            if (rangeInDefined(input, Integer.parseInt(mTask.getStandardValue()), Integer.parseInt(mTask.getMinValue()))) {
-                LogUtils.e("标准绿色"); //   yello-min
-                etTagResult.setTextColor(Color.GREEN);
-                mTask.setCheckResult(TASKSUB_CHECK_RESULT.NORMAL.value() + "");
-            }
-            if (input < Integer.parseInt(mTask.getMinValue())) {
-                LogUtils.e("小于最小值"); //   yello-min
-                etTagResult.setTextColor(Color.RED);
-                mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
-            }
-            if (input > Integer.parseInt(mTask.getBigValue())) {
-                LogUtils.e("大于最大值"); //   yello-min
-                etTagResult.setTextColor(Color.RED);
-                mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
-            }
-
-            mTask.setCheckResultValue("" + input);
-        }
-    };
-
-    private boolean rangeInDefined(double current, int max, int min) {
-        if (max - min > 0) {
-            return current >= min && current <= max;
-        } else {
-            return current <= min && current >= max;
-        }
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

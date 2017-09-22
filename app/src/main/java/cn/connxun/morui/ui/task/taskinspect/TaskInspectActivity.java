@@ -7,12 +7,15 @@ import android.view.View;
 import android.widget.Button;
 
 import com.blankj.utilcode.util.NetworkUtils;
+import com.blankj.utilcode.util.TimeUtils;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 
 import javax.inject.Inject;
 
@@ -58,13 +61,14 @@ public class TaskInspectActivity extends BaseSwipeBackActivity implements TaskIn
         presenter.attachView(this);
         erlTaskIns.setLayoutManager(new LinearLayoutManager(this));
         erlTaskIns.setAdapterWithProgress(adapter);
-        adapter.setOnItemButtonClickListener((pos,v, data) -> {
+        adapter.setOnItemButtonClickListener((pos, v, data) -> {
+//            if (checkOverTime(data)) return;
             switch (v.getId()) {
                 case R.id.btn_task_goback:
-                    presenter.gobackTask(data,pos);
+                    presenter.gobackTask(data, pos);
                     break;
                 case R.id.btn_task_configm:
-                    presenter.confirmTask(data,pos);
+                    presenter.confirmTask(data, pos);
                     break;
                 case R.id.btn_taskoper:
                     if (data.getCheckStatus() == TASK_STATUS.NOCHECK.value()) {
@@ -84,6 +88,22 @@ public class TaskInspectActivity extends BaseSwipeBackActivity implements TaskIn
         });
     }
 
+    private boolean checkOverTime(Task data) {
+        long startTime = TimeUtils.string2Millis(data.getStartDate(), new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()));
+        long endTime   = TimeUtils.string2Millis(data.getEndDate(), new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()));
+        long nowTime   = TimeUtils.getNowMills();
+        if (endTime < nowTime) {
+            mOperation.showBasicDialog("任务已过期", (dialog, which) -> {
+            });
+            data.setCheckStatus(TASK_STATUS.CHECKDONE.value());
+            data.setStatus(TASK_STATUS.CHECK_MISS.value());
+            taskDao.update(data);
+            adapter.notifyDataSetChanged();
+            return true;
+        }
+        return false;
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -97,7 +117,7 @@ public class TaskInspectActivity extends BaseSwipeBackActivity implements TaskIn
             presenter.syncTaskOnlyDownload();
         });
 
-        if(!NetworkUtils.isConnected()){
+        if (!NetworkUtils.isConnected()) {
             presenter.getOfflineTaskList();
         }
 

@@ -67,7 +67,11 @@ public class TaskStepPresenter extends BasePresenter<TaskStepContract.TaskStepVi
             checkResultValue(mTask, input);
         }
         if ((String.valueOf(TASKSUB_CHECK_RESULT.ABNORMAL.value()).equals(mTask.getCheckResult()))) {
-            mView.showConPlan();
+            if (!StringUtils.isEmpty(mTask.getFilePath())) {
+                save();
+            } else {
+                mView.showConPlan();
+            }
         } else {
             save();
         }
@@ -162,21 +166,29 @@ public class TaskStepPresenter extends BasePresenter<TaskStepContract.TaskStepVi
                         + "\n--Origen--" + mTask.getOrangeWarning()
                         + "\n--MinValue--" + mTask.getMinValue()
                         + "\n--MaxValue--" + mTask.getBigValue());
-        if (rangeInDefined(input, Double.parseDouble(mTask.getBigValue()), Double.parseDouble(mTask.getRedWarning()))) {
-            mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
-            LogUtils.e("红"); //红 max-red
+        if (!StringUtils.isEmpty(mTask.getRedWarning())) {
+            if (rangeInDefined(input, Double.parseDouble(mTask.getBigValue()), Double.parseDouble(mTask.getRedWarning()))) {
+                mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
+                LogUtils.e("红"); //红 max-red
+            }
         }
-        if (rangeInDefined(input, Double.parseDouble(mTask.getRedWarning()), Double.parseDouble(mTask.getOrangeWarning()))) {
-            mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
-            LogUtils.e("橙"); //橙 red-org
+        if (!StringUtils.isEmpty(mTask.getRedWarning()) && !StringUtils.isEmpty(mTask.getOrangeWarning())) {
+            if (rangeInDefined(input, Double.parseDouble(mTask.getRedWarning()), Double.parseDouble(mTask.getOrangeWarning()))) {
+                mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
+                LogUtils.e("橙"); //橙 red-org
+            }
         }
-        if (rangeInDefined(input, Double.parseDouble(mTask.getOrangeWarning()), Double.parseDouble(mTask.getYellowWarning()))) {
-            mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
-            LogUtils.e("黄"); //黄 org-yello
+        if (!StringUtils.isEmpty(mTask.getOrangeWarning()) && !StringUtils.isEmpty(mTask.getYellowWarning())) {
+            if (rangeInDefined(input, Double.parseDouble(mTask.getOrangeWarning()), Double.parseDouble(mTask.getYellowWarning()))) {
+                mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
+                LogUtils.e("黄"); //黄 org-yello
+            }
         }
-        if (rangeInDefined(input, Double.parseDouble(mTask.getStandardValue()), Double.parseDouble(mTask.getMinValue()))) {
-            LogUtils.e("标准绿色"); //   yello-min
-            mTask.setCheckResult(TASKSUB_CHECK_RESULT.NORMAL.value() + "");
+        if (!StringUtils.isEmpty(mTask.getStandardValue()) && !StringUtils.isEmpty(mTask.getMinValue())) {
+            if (rangeInDefined(input, Double.parseDouble(mTask.getStandardValue()), Double.parseDouble(mTask.getMinValue()))) {
+                LogUtils.e("标准绿色"); //   yello-min
+                mTask.setCheckResult(TASKSUB_CHECK_RESULT.NORMAL.value() + "");
+            }
         }
         if (input < Double.parseDouble(mTask.getMinValue())) {
             LogUtils.e("小于最小值"); //   yello-min

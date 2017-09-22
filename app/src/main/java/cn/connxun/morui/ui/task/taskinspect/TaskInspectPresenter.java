@@ -152,6 +152,7 @@ public class TaskInspectPresenter extends BasePresenter<TaskInspectContract.Task
             @Override
             public void onError(@NonNull Throwable e) {
                 mView.onError(e.getMessage());
+                mView.endLoading();
             }
 
             @Override

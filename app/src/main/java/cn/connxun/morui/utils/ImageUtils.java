@@ -47,4 +47,18 @@ public class ImageUtils {
         Log.d("d", "压缩后的大小=" + b.length);
         return Base64.encodeToString(b, Base64.DEFAULT);
     }
+
+    public static Bitmap stringtoBitmap(String string){
+        //将字符串转换成Bitmap类型
+        Bitmap bitmap=null;
+        try {
+            byte[]bitmapArray;
+            bitmapArray=Base64.decode(string, Base64.DEFAULT);
+            bitmap=BitmapFactory.decodeByteArray(bitmapArray, 0, bitmapArray.length);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return bitmap;
+    }
 }

@@ -10,8 +10,6 @@ import io.reactivex.schedulers.Schedulers;
 public class RxUtil {
 
     public static Observable<Object> runOnIoThreadTask() {
-        return Observable.create(e -> e.onNext("")).subscribeOn(Schedulers.io()).onErrorResumeNext(throwable -> {
-            return Observable.just(throwable);
-        });
+        return Observable.create(e -> e.onNext("")).subscribeOn(Schedulers.io()).onExceptionResumeNext(Observable.just("this is rx exception"));
     }
 }

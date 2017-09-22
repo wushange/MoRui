@@ -73,7 +73,7 @@ public class TaskTagactivity extends BaseSwipeBackActivity {
     @Override
     public void initView(View view) {
         btnTasktag.setOnLongClickListener(v -> {
-            TaskStepActivity.callMe(getContext(), taskId, "e004015051523c7a");
+            TaskStepActivity.callMe(getContext(), taskId, "e004015051523c7b");
             return true;
         });
     }
@@ -174,14 +174,7 @@ public class TaskTagactivity extends BaseSwipeBackActivity {
             }
             String tagValue = toHex(tag.getId()).replaceAll("\\s", "");
             LogUtil.e("-tagValue==>>" + tagValue);
-//            TaskStepActivity.callMe(getContext(), taskId, tagValue);
-            mOperation.showBasicDialog(tagValue + "\n" + dumpTagData(tag), (dialog, which) -> {
-                dialog.dismiss();
-                TaskStepActivity.callMe(getContext(), taskId, tagValue);
-                finish();
-            });
-
-            // Setup the views
+            TaskStepActivity.callMe(getContext(), taskId, tagValue);
         }
     }
 

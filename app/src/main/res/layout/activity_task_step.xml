@@ -102,7 +102,6 @@
                     android:id="@+id/rb_tag_normal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="true"
                     android:text=" √"
                     android:textColor="@color/checking"/>
 

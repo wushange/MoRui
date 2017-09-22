@@ -103,6 +103,10 @@ public class TaskInspectAdapter extends RecyclerArrayAdapter<Task> {
                 llTaskBack.setVisibility(View.GONE);
                 btnTaskoper.setVisibility(View.VISIBLE);
             }
+            if(data.getStatus()==TASK_STATUS.CHECK_MISS.value()){
+                status= "漏检";
+                actionText = "任务已过期";
+            }
             tvItemTaskName.setText(data.getName());
             tvItemTaskStatus.setText(status);
             tvItemTaskInstime.setText(data.getStartDate());
