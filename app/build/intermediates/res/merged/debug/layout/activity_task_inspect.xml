@@ -20,8 +20,17 @@
         android:background="@drawable/radios_bg_blue_btn"
         android:text="立即同步"
         android:textColor="@color/white"
-        android:visibility="gone"/>
+        android:visibility="visible"/>
 
 
-    <include layout="@layout/common_recyclerview"/>
+    <com.jude.easyrecyclerview.EasyRecyclerView
+        android:id="@+id/easy_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/default_color"
+        android:visibility="gone"
+        app:layout_empty="@layout/view_empty"
+        app:layout_error="@layout/view_error"
+        app:layout_progress="@layout/view_progress"
+        app:recyclerPadding="0dp"/>
 </LinearLayout>

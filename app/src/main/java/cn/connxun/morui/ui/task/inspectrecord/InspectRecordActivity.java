@@ -7,7 +7,6 @@ import android.view.View;
 
 import com.jude.easyrecyclerview.EasyRecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -33,7 +32,6 @@ public class InspectRecordActivity extends BaseSwipeBackActivity implements Insp
     InspectRecordPresenter presenter;
     @Inject
     InspectRecordAdapter   adapter;
-    List<Task> taskList = new ArrayList<>();
     @Override
     public int bindLayout() {
         return R.layout.activity_inspect_record;
@@ -47,9 +45,9 @@ public class InspectRecordActivity extends BaseSwipeBackActivity implements Insp
     @Override
     public void initView(View view) {
         presenter.attachView(this);
-        presenter.getTaskList();
+
         erlInsRecord.setLayoutManager(new LinearLayoutManager(this));
-        erlInsRecord.setAdapter(adapter);
+        erlInsRecord.setAdapterWithProgress(adapter);
         adapter.setOnItemButtonClickListener((v, da) -> {
             TaskDetailsActivity.callMe(getContext(),da.getId());
         });
@@ -57,7 +55,7 @@ public class InspectRecordActivity extends BaseSwipeBackActivity implements Insp
 
     @Override
     public void doBusiness(Context mContext) {
-
+        presenter.getTaskList();
 
     }
 
@@ -83,7 +81,7 @@ public class InspectRecordActivity extends BaseSwipeBackActivity implements Insp
 
     @Override
     public void showList(List<Task> list) {
-        taskList = list;
-        adapter.addAll(taskList);
+        adapter.clear();
+        adapter.addAll(list);
     }
 }

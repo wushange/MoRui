@@ -77,10 +77,7 @@ public class HistoryRecordActivity extends BaseSwipeBackActivity implements Hist
 
     @Override
     public void showList(List<Task> list) {
-        if(list.size()<=0){
-            erlHisRecord.showEmpty();
-            return;
-        }
+        adapter.clear();
         adapter.addAll(list);
     }
 }

@@ -22,6 +22,7 @@ public interface TaskInspectContract {
         void confirmTask(Task task,int pos);
         void gobackTask(Task task,int pos);
         void syncTaskList();
+        void syncTaskOnlyDownload();
         void getOfflineTaskList();
     }
 }

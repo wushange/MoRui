@@ -129,6 +129,11 @@ public class TaskInspectPresenter extends BasePresenter<TaskInspectContract.Task
         });
     }
 
+    @Override
+    public void syncTaskOnlyDownload() {
+        downloadTasks();
+    }
+
     private void downloadTasks() {
         mView.showLoadingView("下载任务中...");
         api.getNewTaskList().subscribe(new Observer<List<Task>>() {
@@ -140,8 +145,8 @@ public class TaskInspectPresenter extends BasePresenter<TaskInspectContract.Task
             @Override
             public void onNext(@NonNull List<Task> tasks) {
                 ToastUtils.showShort("下载成功");
-                mView.showList(tasks);
                 stroge.saveAllTask(tasks);
+                mView.showList(stroge.getAllTask_OffLine());
             }
 
             @Override

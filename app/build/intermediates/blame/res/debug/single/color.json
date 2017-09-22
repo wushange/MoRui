@@ -16,20 +16,20 @@
         "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\color\\abc_primary_text_material_light.xml"
     },
     {
-        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\color\\ucrop_scale_text_view_selector.xml",
-        "source": "C:\\Users\\wushange\\.android\\build-cache\\9d8bfc31f8b6ebfa6d3100cdc5613584e004dbfc\\output\\res\\color\\ucrop_scale_text_view_selector.xml"
-    },
-    {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_btn_checkable.xml",
         "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\color\\abc_tint_btn_checkable.xml"
     },
     {
-        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_switch_thumb.xml",
-        "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\color\\abc_tint_switch_thumb.xml"
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\color\\ucrop_scale_text_view_selector.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\9d8bfc31f8b6ebfa6d3100cdc5613584e004dbfc\\output\\res\\color\\ucrop_scale_text_view_selector.xml"
     },
     {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_spinner.xml",
         "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\color\\abc_tint_spinner.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_switch_thumb.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\color\\abc_tint_switch_thumb.xml"
     },
     {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_dark.xml",

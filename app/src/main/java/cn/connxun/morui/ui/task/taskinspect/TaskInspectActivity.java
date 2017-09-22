@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.Button;
 
+import com.blankj.utilcode.util.NetworkUtils;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -55,7 +56,6 @@ public class TaskInspectActivity extends BaseSwipeBackActivity implements TaskIn
     @Override
     public void initView(View view) {
         presenter.attachView(this);
-        presenter.getOfflineTaskList();
         erlTaskIns.setLayoutManager(new LinearLayoutManager(this));
         erlTaskIns.setAdapterWithProgress(adapter);
         adapter.setOnItemButtonClickListener((pos,v, data) -> {
@@ -94,8 +94,12 @@ public class TaskInspectActivity extends BaseSwipeBackActivity implements TaskIn
         btnSync.setOnClickListener(v -> {
             btnSync.setText("正在同步");
             btnSync.setEnabled(false);
-            presenter.syncTaskList();
+            presenter.syncTaskOnlyDownload();
         });
+
+        if(!NetworkUtils.isConnected()){
+            presenter.getOfflineTaskList();
+        }
 
     }
 
@@ -141,10 +145,7 @@ public class TaskInspectActivity extends BaseSwipeBackActivity implements TaskIn
         mOperation.dissMissDialog();
         erlTaskIns.setVisibility(View.VISIBLE);
         btnSync.setVisibility(View.GONE);
-        if (list.size() == 0) {
-            erlTaskIns.showEmpty();
-            return;
-        }
+        adapter.clear();
         adapter.addAll(list);
     }
 
