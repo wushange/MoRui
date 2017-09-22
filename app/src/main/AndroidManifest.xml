@@ -58,6 +58,8 @@
                 <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
             </intent-filter>
         </activity>
+        <activity android:name=".ui.task.taskchange.TaskChangeActivity"/>
+        <activity android:name=".ui.task.taskchange.TaskChangeDetailActivity"/>
         <activity
             android:name="com.tencent.bugly.beta.ui.BetaActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"

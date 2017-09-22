@@ -14,10 +14,8 @@ public class ImageUtils {
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(filePath, options);
-
         // Calculate inSampleSize
         options.inSampleSize = calculateInSampleSize(options, 480, 800);
-
         // Decode bitmap with inSampleSize set
         options.inJustDecodeBounds = false;
 

@@ -8,6 +8,7 @@ import cn.connxun.morui.api.ContactsApi;
 import cn.connxun.morui.api.DocumentApi;
 import cn.connxun.morui.api.NoticeApi;
 import cn.connxun.morui.api.PlanApi;
+import cn.connxun.morui.api.RectificationApi;
 import cn.connxun.morui.api.TaskApi;
 import cn.connxun.morui.api.TokenApi;
 import cn.connxun.morui.components.retrofit.RequestHelper;
@@ -34,6 +35,7 @@ import cn.connxun.morui.di.module.ApiModule_ProvideContactsApiFactory;
 import cn.connxun.morui.di.module.ApiModule_ProvideDocumentApiFactory;
 import cn.connxun.morui.di.module.ApiModule_ProvideNoticeApiFactory;
 import cn.connxun.morui.di.module.ApiModule_ProvidePlanApiFactory;
+import cn.connxun.morui.di.module.ApiModule_ProvideRectificationApiFactory;
 import cn.connxun.morui.di.module.ApiModule_ProvideTaskApiFactory;
 import cn.connxun.morui.di.module.ApiModule_ProvideTokenApiFactory;
 import cn.connxun.morui.di.module.ApplicationModule;
@@ -100,6 +102,8 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
   private Provider<TokenApi> provideTokenApiProvider;
 
   private Provider<TaskApi> provideTaskApiProvider;
+
+  private Provider<RectificationApi> provideRectificationApiProvider;
 
   private Provider<DocumentApi> provideDocumentApiProvider;
 
@@ -211,6 +215,11 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
             ApiModule_ProvideTaskApiFactory.create(
                 builder.apiModule, provideRequestHelperProvider, provideOkHttpClientBuildProvider));
 
+    this.provideRectificationApiProvider =
+        DoubleCheck.provider(
+            ApiModule_ProvideRectificationApiFactory.create(
+                builder.apiModule, provideRequestHelperProvider, provideOkHttpClientBuildProvider));
+
     this.provideDocumentApiProvider =
         DoubleCheck.provider(
             ApiModule_ProvideDocumentApiFactory.create(
@@ -320,6 +329,11 @@ public final class DaggerApplicationComponent implements ApplicationComponent {
   @Override
   public TaskApi getTaskApi() {
     return provideTaskApiProvider.get();
+  }
+
+  @Override
+  public RectificationApi getRectificationApi() {
+    return provideRectificationApiProvider.get();
   }
 
   @Override

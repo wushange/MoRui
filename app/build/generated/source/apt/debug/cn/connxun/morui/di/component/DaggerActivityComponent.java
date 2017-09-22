@@ -5,6 +5,7 @@ import android.content.Context;
 import cn.connxun.morui.api.ContactsApi;
 import cn.connxun.morui.api.DocumentApi;
 import cn.connxun.morui.api.PlanApi;
+import cn.connxun.morui.api.RectificationApi;
 import cn.connxun.morui.api.TaskApi;
 import cn.connxun.morui.api.TokenApi;
 import cn.connxun.morui.components.retrofit.RequestHelper;
@@ -63,6 +64,14 @@ import cn.connxun.morui.ui.task.sceneplan.ScenePlanPresenter_Factory;
 import cn.connxun.morui.ui.task.scenevideo.SceneVideoActivity;
 import cn.connxun.morui.ui.task.synctask.SyncActivity;
 import cn.connxun.morui.ui.task.taskallot.TaskAllotActivity;
+import cn.connxun.morui.ui.task.taskchange.TaskChangeActivity;
+import cn.connxun.morui.ui.task.taskchange.TaskChangeActivity_MembersInjector;
+import cn.connxun.morui.ui.task.taskchange.TaskChangeAdapter;
+import cn.connxun.morui.ui.task.taskchange.TaskChangeAdapter_Factory;
+import cn.connxun.morui.ui.task.taskchange.TaskChangeDetailActivity;
+import cn.connxun.morui.ui.task.taskchange.TaskChangeDetailActivity_MembersInjector;
+import cn.connxun.morui.ui.task.taskchange.TaskChangePresenter;
+import cn.connxun.morui.ui.task.taskchange.TaskChangePresenter_Factory;
 import cn.connxun.morui.ui.task.taskdetails.TaskDetailsActivity;
 import cn.connxun.morui.ui.task.taskdetails.TaskDetailsActivity_MembersInjector;
 import cn.connxun.morui.ui.task.taskdetails.TaskDetailsAdapter;
@@ -177,6 +186,16 @@ public final class DaggerActivityComponent implements ActivityComponent {
   private Provider<TaskStepPresenter> taskStepPresenterProvider;
 
   private MembersInjector<TaskStepActivity> taskStepActivityMembersInjector;
+
+  private Provider<RectificationApi> getRectificationApiProvider;
+
+  private Provider<TaskChangePresenter> taskChangePresenterProvider;
+
+  private Provider<TaskChangeAdapter> taskChangeAdapterProvider;
+
+  private MembersInjector<TaskChangeActivity> taskChangeActivityMembersInjector;
+
+  private MembersInjector<TaskChangeDetailActivity> taskChangeDetailActivityMembersInjector;
 
   private DaggerActivityComponent(Builder builder) {
     assert builder != null;
@@ -371,6 +390,26 @@ public final class DaggerActivityComponent implements ActivityComponent {
 
     this.taskStepActivityMembersInjector =
         TaskStepActivity_MembersInjector.create(taskStepPresenterProvider);
+
+    this.getRectificationApiProvider =
+        new cn_connxun_morui_di_component_ApplicationComponent_getRectificationApi(
+            builder.applicationComponent);
+
+    this.taskChangePresenterProvider =
+        DoubleCheck.provider(
+            TaskChangePresenter_Factory.create(
+                MembersInjectors.<TaskChangePresenter>noOp(), getRectificationApiProvider));
+
+    this.taskChangeAdapterProvider =
+        TaskChangeAdapter_Factory.create(
+            MembersInjectors.<TaskChangeAdapter>noOp(), getContextProvider);
+
+    this.taskChangeActivityMembersInjector =
+        TaskChangeActivity_MembersInjector.create(
+            taskChangePresenterProvider, taskChangeAdapterProvider);
+
+    this.taskChangeDetailActivityMembersInjector =
+        TaskChangeDetailActivity_MembersInjector.create(taskChangePresenterProvider);
   }
 
   @Override
@@ -466,6 +505,16 @@ public final class DaggerActivityComponent implements ActivityComponent {
   @Override
   public void inject(TaskStepActivity activity) {
     taskStepActivityMembersInjector.injectMembers(activity);
+  }
+
+  @Override
+  public void inject(TaskChangeActivity activity) {
+    taskChangeActivityMembersInjector.injectMembers(activity);
+  }
+
+  @Override
+  public void inject(TaskChangeDetailActivity activity) {
+    taskChangeDetailActivityMembersInjector.injectMembers(activity);
   }
 
   public static final class Builder {
@@ -714,6 +763,23 @@ public final class DaggerActivityComponent implements ActivityComponent {
     public TaskSubDao get() {
       return Preconditions.checkNotNull(
           applicationComponent.getTaskSubDao(),
+          "Cannot return null from a non-@Nullable component method");
+    }
+  }
+
+  private static class cn_connxun_morui_di_component_ApplicationComponent_getRectificationApi
+      implements Provider<RectificationApi> {
+    private final ApplicationComponent applicationComponent;
+
+    cn_connxun_morui_di_component_ApplicationComponent_getRectificationApi(
+        ApplicationComponent applicationComponent) {
+      this.applicationComponent = applicationComponent;
+    }
+
+    @Override
+    public RectificationApi get() {
+      return Preconditions.checkNotNull(
+          applicationComponent.getRectificationApi(),
           "Cannot return null from a non-@Nullable component method");
     }
   }

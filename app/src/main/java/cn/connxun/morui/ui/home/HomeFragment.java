@@ -32,6 +32,7 @@ import cn.connxun.morui.ui.task.sceneplan.ScenePlanActivity;
 import cn.connxun.morui.ui.task.scenevideo.SceneVideoActivity;
 import cn.connxun.morui.ui.task.stacalreport.StaticsReportActivity;
 import cn.connxun.morui.ui.task.taskallot.TaskAllotActivity;
+import cn.connxun.morui.ui.task.taskchange.TaskChangeActivity;
 import cn.connxun.morui.ui.task.taskinspect.TaskInspectActivity;
 import cn.connxun.morui.ui.task.taskinspect.TaskInspectContract;
 import cn.connxun.morui.ui.task.taskinspect.TaskInspectPresenter;
@@ -121,6 +122,10 @@ public class HomeFragment extends BaseFragmentV4 implements TaskInspectContract.
                 mOperation.forward(TaskInspectActivity.class);
             }
             break;
+            case CHANGE_TASK:{
+                mOperation.forward(TaskChangeActivity.class);
+                break;
+            }
             case INSPECT_RECORD: {
                 mOperation.forward(InspectRecordActivity.class);
             }

@@ -55,11 +55,13 @@ public class TaskSubDao extends AbstractDao<TaskSub, String> {
         public final static Property ImportantLevel = new Property(25, String.class, "importantLevel", false, "IMPORTANT_LEVEL");
         public final static Property DangerLevel = new Property(26, String.class, "dangerLevel", false, "DANGER_LEVEL");
         public final static Property GovernmentPolicy = new Property(27, String.class, "governmentPolicy", false, "GOVERNMENT_POLICY");
-        public final static Property CheckResultValue = new Property(28, String.class, "checkResultValue", false, "CHECK_RESULT_VALUE");
-        public final static Property CheckResult = new Property(29, String.class, "checkResult", false, "CHECK_RESULT");
-        public final static Property Remark = new Property(30, String.class, "remark", false, "REMARK");
-        public final static Property FilePath = new Property(31, String.class, "filePath", false, "FILE_PATH");
-        public final static Property CheckStatus = new Property(32, int.class, "checkStatus", false, "CHECK_STATUS");
+        public final static Property CheckUserName = new Property(28, String.class, "checkUserName", false, "CHECK_USER_NAME");
+        public final static Property CheckDate = new Property(29, String.class, "checkDate", false, "CHECK_DATE");
+        public final static Property CheckResultValue = new Property(30, String.class, "checkResultValue", false, "CHECK_RESULT_VALUE");
+        public final static Property CheckResult = new Property(31, String.class, "checkResult", false, "CHECK_RESULT");
+        public final static Property Remark = new Property(32, String.class, "remark", false, "REMARK");
+        public final static Property FilePath = new Property(33, String.class, "filePath", false, "FILE_PATH");
+        public final static Property CheckStatus = new Property(34, int.class, "checkStatus", false, "CHECK_STATUS");
     }
 
     private Query<TaskSub> task_TaskSubListQuery;
@@ -104,11 +106,13 @@ public class TaskSubDao extends AbstractDao<TaskSub, String> {
                 "\"IMPORTANT_LEVEL\" TEXT," + // 25: importantLevel
                 "\"DANGER_LEVEL\" TEXT," + // 26: dangerLevel
                 "\"GOVERNMENT_POLICY\" TEXT," + // 27: governmentPolicy
-                "\"CHECK_RESULT_VALUE\" TEXT," + // 28: checkResultValue
-                "\"CHECK_RESULT\" TEXT," + // 29: checkResult
-                "\"REMARK\" TEXT," + // 30: remark
-                "\"FILE_PATH\" TEXT," + // 31: filePath
-                "\"CHECK_STATUS\" INTEGER NOT NULL );"); // 32: checkStatus
+                "\"CHECK_USER_NAME\" TEXT," + // 28: checkUserName
+                "\"CHECK_DATE\" TEXT," + // 29: checkDate
+                "\"CHECK_RESULT_VALUE\" TEXT," + // 30: checkResultValue
+                "\"CHECK_RESULT\" TEXT," + // 31: checkResult
+                "\"REMARK\" TEXT," + // 32: remark
+                "\"FILE_PATH\" TEXT," + // 33: filePath
+                "\"CHECK_STATUS\" INTEGER NOT NULL );"); // 34: checkStatus
     }
 
     /** Drops the underlying database table. */
@@ -253,26 +257,36 @@ public class TaskSubDao extends AbstractDao<TaskSub, String> {
             stmt.bindString(28, governmentPolicy);
         }
  
+        String checkUserName = entity.getCheckUserName();
+        if (checkUserName != null) {
+            stmt.bindString(29, checkUserName);
+        }
+ 
+        String checkDate = entity.getCheckDate();
+        if (checkDate != null) {
+            stmt.bindString(30, checkDate);
+        }
+ 
         String checkResultValue = entity.getCheckResultValue();
         if (checkResultValue != null) {
-            stmt.bindString(29, checkResultValue);
+            stmt.bindString(31, checkResultValue);
         }
  
         String checkResult = entity.getCheckResult();
         if (checkResult != null) {
-            stmt.bindString(30, checkResult);
+            stmt.bindString(32, checkResult);
         }
  
         String remark = entity.getRemark();
         if (remark != null) {
-            stmt.bindString(31, remark);
+            stmt.bindString(33, remark);
         }
  
         String filePath = entity.getFilePath();
         if (filePath != null) {
-            stmt.bindString(32, filePath);
+            stmt.bindString(34, filePath);
         }
-        stmt.bindLong(33, entity.getCheckStatus());
+        stmt.bindLong(35, entity.getCheckStatus());
     }
 
     @Override
@@ -411,26 +425,36 @@ public class TaskSubDao extends AbstractDao<TaskSub, String> {
             stmt.bindString(28, governmentPolicy);
         }
  
+        String checkUserName = entity.getCheckUserName();
+        if (checkUserName != null) {
+            stmt.bindString(29, checkUserName);
+        }
+ 
+        String checkDate = entity.getCheckDate();
+        if (checkDate != null) {
+            stmt.bindString(30, checkDate);
+        }
+ 
         String checkResultValue = entity.getCheckResultValue();
         if (checkResultValue != null) {
-            stmt.bindString(29, checkResultValue);
+            stmt.bindString(31, checkResultValue);
         }
  
         String checkResult = entity.getCheckResult();
         if (checkResult != null) {
-            stmt.bindString(30, checkResult);
+            stmt.bindString(32, checkResult);
         }
  
         String remark = entity.getRemark();
         if (remark != null) {
-            stmt.bindString(31, remark);
+            stmt.bindString(33, remark);
         }
  
         String filePath = entity.getFilePath();
         if (filePath != null) {
-            stmt.bindString(32, filePath);
+            stmt.bindString(34, filePath);
         }
-        stmt.bindLong(33, entity.getCheckStatus());
+        stmt.bindLong(35, entity.getCheckStatus());
     }
 
     @Override
@@ -469,11 +493,13 @@ public class TaskSubDao extends AbstractDao<TaskSub, String> {
             cursor.isNull(offset + 25) ? null : cursor.getString(offset + 25), // importantLevel
             cursor.isNull(offset + 26) ? null : cursor.getString(offset + 26), // dangerLevel
             cursor.isNull(offset + 27) ? null : cursor.getString(offset + 27), // governmentPolicy
-            cursor.isNull(offset + 28) ? null : cursor.getString(offset + 28), // checkResultValue
-            cursor.isNull(offset + 29) ? null : cursor.getString(offset + 29), // checkResult
-            cursor.isNull(offset + 30) ? null : cursor.getString(offset + 30), // remark
-            cursor.isNull(offset + 31) ? null : cursor.getString(offset + 31), // filePath
-            cursor.getInt(offset + 32) // checkStatus
+            cursor.isNull(offset + 28) ? null : cursor.getString(offset + 28), // checkUserName
+            cursor.isNull(offset + 29) ? null : cursor.getString(offset + 29), // checkDate
+            cursor.isNull(offset + 30) ? null : cursor.getString(offset + 30), // checkResultValue
+            cursor.isNull(offset + 31) ? null : cursor.getString(offset + 31), // checkResult
+            cursor.isNull(offset + 32) ? null : cursor.getString(offset + 32), // remark
+            cursor.isNull(offset + 33) ? null : cursor.getString(offset + 33), // filePath
+            cursor.getInt(offset + 34) // checkStatus
         );
         return entity;
     }
@@ -508,11 +534,13 @@ public class TaskSubDao extends AbstractDao<TaskSub, String> {
         entity.setImportantLevel(cursor.isNull(offset + 25) ? null : cursor.getString(offset + 25));
         entity.setDangerLevel(cursor.isNull(offset + 26) ? null : cursor.getString(offset + 26));
         entity.setGovernmentPolicy(cursor.isNull(offset + 27) ? null : cursor.getString(offset + 27));
-        entity.setCheckResultValue(cursor.isNull(offset + 28) ? null : cursor.getString(offset + 28));
-        entity.setCheckResult(cursor.isNull(offset + 29) ? null : cursor.getString(offset + 29));
-        entity.setRemark(cursor.isNull(offset + 30) ? null : cursor.getString(offset + 30));
-        entity.setFilePath(cursor.isNull(offset + 31) ? null : cursor.getString(offset + 31));
-        entity.setCheckStatus(cursor.getInt(offset + 32));
+        entity.setCheckUserName(cursor.isNull(offset + 28) ? null : cursor.getString(offset + 28));
+        entity.setCheckDate(cursor.isNull(offset + 29) ? null : cursor.getString(offset + 29));
+        entity.setCheckResultValue(cursor.isNull(offset + 30) ? null : cursor.getString(offset + 30));
+        entity.setCheckResult(cursor.isNull(offset + 31) ? null : cursor.getString(offset + 31));
+        entity.setRemark(cursor.isNull(offset + 32) ? null : cursor.getString(offset + 32));
+        entity.setFilePath(cursor.isNull(offset + 33) ? null : cursor.getString(offset + 33));
+        entity.setCheckStatus(cursor.getInt(offset + 34));
      }
     
     @Override

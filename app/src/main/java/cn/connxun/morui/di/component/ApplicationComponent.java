@@ -11,6 +11,7 @@ import cn.connxun.morui.api.ContactsApi;
 import cn.connxun.morui.api.DocumentApi;
 import cn.connxun.morui.api.NoticeApi;
 import cn.connxun.morui.api.PlanApi;
+import cn.connxun.morui.api.RectificationApi;
 import cn.connxun.morui.api.TaskApi;
 import cn.connxun.morui.api.TokenApi;
 import cn.connxun.morui.components.retrofit.RequestHelper;
@@ -49,6 +50,7 @@ public interface ApplicationComponent {
 
     TaskApi getTaskApi();
 
+    RectificationApi getRectificationApi();
     DocumentApi getDocumentApi();
 
     NoticeApi getNoticeApi();

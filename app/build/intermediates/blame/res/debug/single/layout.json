@@ -16,6 +16,10 @@
         "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\layout\\abc_expanded_menu_layout.xml"
     },
     {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_task_change_details.xml",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\layout\\activity_task_change_details.xml"
+    },
+    {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\layout\\gallery_adapter_bucket_item.xml",
         "source": "C:\\Users\\wushange\\.android\\build-cache\\ee4b203c436c68f491f47005634fd262f928fe3e\\output\\res\\layout\\gallery_adapter_bucket_item.xml"
     },
@@ -78,6 +82,10 @@
     {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
         "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_task_change.xml",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\layout\\activity_task_change.xml"
     },
     {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\layout\\md_dialog_list_check.xml",

@@ -2,10 +2,14 @@ package cn.connxun.morui.ui.task.taskstep;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.StringUtils;
+import com.blankj.utilcode.util.TimeUtils;
 import com.blankj.utilcode.util.ToastUtils;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.inject.Inject;
 
@@ -13,6 +17,7 @@ import cn.connxun.morui.constants.enums.TASKSUB_CHECK_RESULT;
 import cn.connxun.morui.constants.enums.TASKSUB_CHECK_STATUS;
 import cn.connxun.morui.constants.enums.TASK_ISSUBJUDGE;
 import cn.connxun.morui.constants.enums.TASK_STATUS;
+import cn.connxun.morui.data.local.UserStorge;
 import cn.connxun.morui.db.TaskDao;
 import cn.connxun.morui.db.TaskSubDao;
 import cn.connxun.morui.di.PerActivity;
@@ -28,6 +33,7 @@ import cn.connxun.morui.ui.base.BasePresenter;
 @PerActivity
 public class TaskStepPresenter extends BasePresenter<TaskStepContract.TaskStepView> implements TaskStepContract.TaskStepPresenter {
 
+    UserStorge userStorge;
     TaskSubDao subListBeanDao;
     TaskDao    allotTaskDao;
     List<TaskSub> allotTaskSubListBeen = new ArrayList<>();
@@ -103,7 +109,10 @@ public class TaskStepPresenter extends BasePresenter<TaskStepContract.TaskStepVi
             ToastUtils.showShort("上次检查到这里");
         }
         if (allotTaskSubListBeen != null && allotTaskSubListBeen.size() > 0) {
-            mView.renderTaskView(allotTaskSubListBeen.size() + "", allotTaskSubListBeen.get(mView.getIndex()));
+            TaskSub mTask = allotTaskSubListBeen.get(mView.getIndex());
+            mTask.setCheckUserName(userStorge.getUser().getRealname());
+            mTask.setCheckDate(TimeUtils.date2String(new Date(),new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())));
+            mView.renderTaskView(allotTaskSubListBeen.size() + "",mTask);
         } else {
             mView.onError("未匹配到任务");
         }

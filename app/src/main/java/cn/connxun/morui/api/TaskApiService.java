@@ -85,4 +85,6 @@ public interface TaskApiService {
     @Headers("Content-Type:application/json")
     @POST("uploadTask.do")
     Observable<Object> uploadTask(@Body List<Task> json);
+
+ 
 }

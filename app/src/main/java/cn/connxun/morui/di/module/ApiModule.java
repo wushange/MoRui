@@ -7,6 +7,7 @@ import cn.connxun.morui.api.ContactsApi;
 import cn.connxun.morui.api.DocumentApi;
 import cn.connxun.morui.api.NoticeApi;
 import cn.connxun.morui.api.PlanApi;
+import cn.connxun.morui.api.RectificationApi;
 import cn.connxun.morui.api.TaskApi;
 import cn.connxun.morui.api.TokenApi;
 import cn.connxun.morui.components.retrofit.RequestHelper;
@@ -51,10 +52,14 @@ public class ApiModule {
     public ContactsApi provideContactsApi(RequestHelper helper, OkHttpClient.Builder okHttpClient) {
         return new ContactsApi(helper, okHttpClient);
     }
-
     @Provides
     @Singleton
     public TaskApi provideTaskApi(RequestHelper helper, OkHttpClient.Builder okHttpClient) {
         return new TaskApi(helper, okHttpClient);
+    }
+    @Provides
+    @Singleton
+    public RectificationApi provideRectificationApi(RequestHelper helper, OkHttpClient.Builder okHttpClient) {
+        return new RectificationApi(helper, okHttpClient);
     }
 }

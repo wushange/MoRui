@@ -18,6 +18,8 @@ import cn.connxun.morui.ui.task.sceneplan.ScenePlanActivity;
 import cn.connxun.morui.ui.task.scenevideo.SceneVideoActivity;
 import cn.connxun.morui.ui.task.synctask.SyncActivity;
 import cn.connxun.morui.ui.task.taskallot.TaskAllotActivity;
+import cn.connxun.morui.ui.task.taskchange.TaskChangeActivity;
+import cn.connxun.morui.ui.task.taskchange.TaskChangeDetailActivity;
 import cn.connxun.morui.ui.task.taskdetails.TaskDetailsActivity;
 import cn.connxun.morui.ui.task.taskinspect.TaskInspectActivity;
 import cn.connxun.morui.ui.task.taskstep.TaskStepActivity;
@@ -65,4 +67,7 @@ public interface ActivityComponent {
     void inject(ConplanDetailActivity activity);
 
     void inject(TaskStepActivity activity);
+    
+    void inject(TaskChangeActivity activity);
+     void inject(TaskChangeDetailActivity activity);
 }

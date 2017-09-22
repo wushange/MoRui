@@ -69,6 +69,8 @@ public class TaskSub {
     private String importantLevel;
     private String dangerLevel;
     private String governmentPolicy;
+    private String checkUserName;
+    private String checkDate;
     private String checkResultValue;
     private String checkResult;
     private String remark;
@@ -80,7 +82,7 @@ public class TaskSub {
     private int checkStatus ;//检测状态 0 未检查 2 检查完
 
 
-    @Generated(hash = 505873547)
+    @Generated(hash = 915182945)
     public TaskSub(String id, String taskId, String pointId, String pointName,
             String departmentCode, String departmentName, String jobsCode,
             String jobsName, String equipmentName, String objectName, String tag,
@@ -89,8 +91,8 @@ public class TaskSub {
             String yellowWarning, String orangeWarning, String redWarning,
             int displayOrder, String contingencyScene, String contingencyInfoCode,
             String importantLevel, String dangerLevel, String governmentPolicy,
-            String checkResultValue, String checkResult, String remark,
-            String filePath, int checkStatus) {
+            String checkUserName, String checkDate, String checkResultValue,
+            String checkResult, String remark, String filePath, int checkStatus) {
         this.id = id;
         this.taskId = taskId;
         this.pointId = pointId;
@@ -119,6 +121,8 @@ public class TaskSub {
         this.importantLevel = importantLevel;
         this.dangerLevel = dangerLevel;
         this.governmentPolicy = governmentPolicy;
+        this.checkUserName = checkUserName;
+        this.checkDate = checkDate;
         this.checkResultValue = checkResultValue;
         this.checkResult = checkResult;
         this.remark = remark;
@@ -131,44 +135,6 @@ public class TaskSub {
     public TaskSub() {
     }
 
-
-    @Override
-    public String toString() {
-        return "TaskSub{" +
-                "id='" + id + '\'' +
-                ", taskId='" + taskId + '\'' +
-                ", pointId='" + pointId + '\'' +
-                ", pointName='" + pointName + '\'' +
-                ", departmentCode='" + departmentCode + '\'' +
-                ", departmentName='" + departmentName + '\'' +
-                ", jobsCode='" + jobsCode + '\'' +
-                ", jobsName='" + jobsName + '\'' +
-                ", equipmentName='" + equipmentName + '\'' +
-                ", objectName='" + objectName + '\'' +
-                ", tag='" + tag + '\'' +
-                ", gps='" + gps + '\'' +
-                ", isSubJudge=" + isSubJudge +
-                ", subjectiveJudgment='" + subjectiveJudgment + '\'' +
-                ", unit='" + unit + '\'' +
-                ", minValue='" + minValue + '\'' +
-                ", standardValue='" + standardValue + '\'' +
-                ", bigValue='" + bigValue + '\'' +
-                ", yellowWarning='" + yellowWarning + '\'' +
-                ", orangeWarning='" + orangeWarning + '\'' +
-                ", redWarning='" + redWarning + '\'' +
-                ", displayOrder=" + displayOrder +
-                ", contingencyScene='" + contingencyScene + '\'' +
-                ", contingencyInfoCode='" + contingencyInfoCode + '\'' +
-                ", importantLevel='" + importantLevel + '\'' +
-                ", dangerLevel='" + dangerLevel + '\'' +
-                ", governmentPolicy='" + governmentPolicy + '\'' +
-                ", checkResultValue='" + checkResultValue + '\'' +
-                ", checkResult='" + checkResult + '\'' +
-                ", remark='" + remark + '\'' +
-                ", filePath='" + filePath + '\'' +
-                ", checkStatus=" + checkStatus +
-                '}';
-    }
 
 
     public String getId() {
@@ -501,4 +467,63 @@ public class TaskSub {
     }
 
 
+    public String getCheckUserName() {
+        return this.checkUserName;
+    }
+
+
+    public void setCheckUserName(String checkUserName) {
+        this.checkUserName = checkUserName;
+    }
+
+
+    public String getCheckDate() {
+        return this.checkDate;
+    }
+
+
+    public void setCheckDate(String checkDate) {
+        this.checkDate = checkDate;
+    }
+
+    @Override
+    public String toString() {
+        return "TaskSub{" +
+                "id='" + id + '\'' +
+                ", taskId='" + taskId + '\'' +
+                ", pointId='" + pointId + '\'' +
+                ", pointName='" + pointName + '\'' +
+                ", departmentCode='" + departmentCode + '\'' +
+                ", departmentName='" + departmentName + '\'' +
+                ", jobsCode='" + jobsCode + '\'' +
+                ", jobsName='" + jobsName + '\'' +
+                ", equipmentName='" + equipmentName + '\'' +
+                ", objectName='" + objectName + '\'' +
+                ", tag='" + tag + '\'' +
+                ", tagValue='" + tagValue + '\'' +
+                ", gps='" + gps + '\'' +
+                ", isSubJudge=" + isSubJudge +
+                ", subjectiveJudgment='" + subjectiveJudgment + '\'' +
+                ", unit='" + unit + '\'' +
+                ", minValue='" + minValue + '\'' +
+                ", standardValue='" + standardValue + '\'' +
+                ", bigValue='" + bigValue + '\'' +
+                ", yellowWarning='" + yellowWarning + '\'' +
+                ", orangeWarning='" + orangeWarning + '\'' +
+                ", redWarning='" + redWarning + '\'' +
+                ", displayOrder=" + displayOrder +
+                ", contingencyScene='" + contingencyScene + '\'' +
+                ", contingencyInfoCode='" + contingencyInfoCode + '\'' +
+                ", importantLevel='" + importantLevel + '\'' +
+                ", dangerLevel='" + dangerLevel + '\'' +
+                ", governmentPolicy='" + governmentPolicy + '\'' +
+                ", checkUserName='" + checkUserName + '\'' +
+                ", checkDate='" + checkDate + '\'' +
+                ", checkResultValue='" + checkResultValue + '\'' +
+                ", checkResult='" + checkResult + '\'' +
+                ", remark='" + remark + '\'' +
+                ", filePath='" + filePath + '\'' +
+                ", checkStatus=" + checkStatus +
+                '}';
+    }
 }
