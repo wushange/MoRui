@@ -62,7 +62,8 @@ public class TaskInspectActivity extends BaseSwipeBackActivity implements TaskIn
         erlTaskIns.setLayoutManager(new LinearLayoutManager(this));
         erlTaskIns.setAdapterWithProgress(adapter);
         adapter.setOnItemButtonClickListener((pos, v, data) -> {
-//            if (checkOverTime(data)) return;
+            //检测结束时间是否小于当前时间 如果小于则任务已过期
+            if (checkOverTime(data)) return;
             switch (v.getId()) {
                 case R.id.btn_task_goback:
                     presenter.gobackTask(data, pos);

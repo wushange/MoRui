@@ -1,5 +1,7 @@
 package cn.connxun.morui.ui.task.taskinspect;
 
+import android.os.Handler;
+
 import com.blankj.utilcode.util.ToastUtils;
 import com.facebook.stetho.common.LogUtil;
 
@@ -146,7 +148,7 @@ public class TaskInspectPresenter extends BasePresenter<TaskInspectContract.Task
             public void onNext(@NonNull List<Task> tasks) {
                 ToastUtils.showShort("下载成功");
                 stroge.saveAllTask(tasks);
-                mView.showList(stroge.getAllTask_OffLine());
+                new Handler().postDelayed(() -> mView.showList(stroge.getAllTask_OffLine()),500);
             }
 
             @Override

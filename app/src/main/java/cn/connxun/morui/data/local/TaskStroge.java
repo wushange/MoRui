@@ -101,7 +101,7 @@ public class TaskStroge {
                 List<TaskSub> doneList = taskSubDao.queryBuilder().where(
                         TaskSubDao.Properties.CheckStatus.eq(TASKSUB_CHECK_STATUS.CHECKDONE.value())
                         , TaskSubDao.Properties.TaskId.eq(a.getId())).list();
-                Logger.e("总任务数:" + allList.size() + "--完成任务数量：" + doneList.size());
+                Logger.e("获取所有未同步任务 总任务数:" + allList.size() + "--完成任务数量：" + doneList.size());
                 if (doneList.size() == allList.size()) {
                     tasks.add(a);
                 }
