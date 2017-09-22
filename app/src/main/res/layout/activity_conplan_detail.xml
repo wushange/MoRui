@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+
+    <cn.connxun.morui.widget.AppTitle
+        style="@style/title_style"
+        app:canFinish="true"
+        app:centreText="@string/title_detail"
+        app:centreTextColor="@color/white"
+        app:showBack="true"/>
+
+
+    <TextView
+        android:id="@+id/tv_plan_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_18"
+        android:textStyle="bold"
+        tools:text="内容文字"/>
+
+    <TextView
+        android:id="@+id/tv_plan_context"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="@dimen/text_size_16"
+        tools:text="内容文字"/>
+
+    <TextView
+        android:id="@+id/tv_plan_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:autoLink="all"
+        android:padding="10dp"
+        android:textColor="@color/colorPrimary"
+        tools:text="文件"
+        />
+
+</LinearLayout>

@@ -1,0 +1,54 @@
+[
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\github_circle.png",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\github_circle.png"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_favorite_black_24dp.png",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_favorite_black_24dp.png"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\shadow_bottom.png",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\drawable-xhdpi\\shadow_bottom.png"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_dashboard_black_24dp.png",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_dashboard_black_24dp.png"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_mic_black_24dp.png",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_mic_black_24dp.png"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\shadow_left.png",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\drawable-xhdpi\\shadow_left.png"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_book_black_24dp.png",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_book_black_24dp.png"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\shadow_right.png",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\drawable-xhdpi\\shadow_right.png"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_notifications_black_24dp.png",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_notifications_black_24dp.png"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_home_black_24dp.png",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_home_black_24dp.png"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_title_back.png",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\drawable-xhdpi\\ic_title_back.png"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\shadow_article.png",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\drawable-xhdpi\\shadow_article.png"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\bg_login_account.9.png",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\drawable-xhdpi\\bg_login_account.9.png"
+    }
+]

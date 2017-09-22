@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <cn.connxun.morui.widget.AppTitle
+            style="@style/title_style"
+            app:canFinish="true"
+            app:showBack="true">
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/task_allot_tab"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dp"
+                app:tabIndicatorColor="@android:color/white"
+                app:tabIndicatorHeight="1dp"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@color/white"
+                app:tabTextColor="#a3bcdb" />
+        </cn.connxun.morui.widget.AppTitle>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_task_allot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

@@ -1,0 +1,130 @@
+[
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\base_push_bottom_out.xml",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\anim\\base_push_bottom_out.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_out.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\f2d3b9731b76fca629d2bfceddb85fb02c154317\\output\\res\\anim\\design_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\base_push_bottom_in.xml",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\anim\\base_push_bottom_in.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_in.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\f2d3b9731b76fca629d2bfceddb85fb02c154317\\output\\res\\anim\\design_fab_in.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\base_slide_remain.xml",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\anim\\base_slide_remain.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\decelerate_cubic.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\1f5978b0a6094687a30b4ace9b1d7bfdc43466f7\\output\\res\\anim\\decelerate_cubic.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\base_fade_in.xml",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\anim\\base_fade_in.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\popup_enter.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\1f5978b0a6094687a30b4ace9b1d7bfdc43466f7\\output\\res\\anim\\popup_enter.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\base_fade_out.xml",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\anim\\base_fade_out.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_in.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\f2d3b9731b76fca629d2bfceddb85fb02c154317\\output\\res\\anim\\design_snackbar_in.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\popup_exit.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\1f5978b0a6094687a30b4ace9b1d7bfdc43466f7\\output\\res\\anim\\popup_exit.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_in.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\f2d3b9731b76fca629d2bfceddb85fb02c154317\\output\\res\\anim\\design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_out.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\f2d3b9731b76fca629d2bfceddb85fb02c154317\\output\\res\\anim\\design_fab_out.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_out.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\f2d3b9731b76fca629d2bfceddb85fb02c154317\\output\\res\\anim\\design_snackbar_out.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\base_slide_left_in.xml",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\anim\\base_slide_left_in.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\base_slide_right_out.xml",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\anim\\base_slide_right_out.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\base_slide_left_out.xml",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\anim\\base_slide_left_out.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\base_slide_right_in.xml",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\anim\\base_slide_right_in.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\ucrop_loader_circle_scale.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\9d8bfc31f8b6ebfa6d3100cdc5613584e004dbfc\\output\\res\\anim\\ucrop_loader_circle_scale.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\base_push_up_in.xml",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\anim\\base_push_up_in.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\base_push_up_out.xml",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\anim\\base_push_up_out.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\anim\\ucrop_loader_circle_path.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\9d8bfc31f8b6ebfa6d3100cdc5613584e004dbfc\\output\\res\\anim\\ucrop_loader_circle_path.xml"
+    }
+]

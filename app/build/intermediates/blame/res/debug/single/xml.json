@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\xml\\provider_paths.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\13daabab98658d3e67e047453f3620057c1fbd2d\\output\\res\\xml\\provider_paths.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\xml\\file_paths.xml",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\xml\\file_paths.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\xml\\web_download_paths.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\93725debb89e69430d05a7443b3c75e5849ce0b1\\output\\res\\xml\\web_download_paths.xml"
+    }
+]

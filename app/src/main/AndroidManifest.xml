@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="cn.connxun.morui">
+
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <application
+        android:name="cn.connxun.morui.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_app_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="cn.connxun.morui.ui.splash.SplashActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="cn.connxun.morui.ui.login.LoginActivity"/>
+        <activity android:name="cn.connxun.morui.ui.main.MainActivity"/>
+        <activity android:name=".ui.contacts.ContactsActivity"/>
+        <activity android:name=".ui.filedoc.FileDocActivity"/>
+        <activity android:name=".ui.notice.NoticeActivity"/>
+        <activity android:name=".ui.guide.GuideActivity"/>
+        <activity
+            android:name=".ui.filepreview.FilePreviewActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".ui.base.WebActivity"/>
+
+        <activity android:name=".ui.task.conplan.ConplanActivity"/>
+        <activity android:name=".ui.task.conplan.ConplanDetailActivity"/>
+        <activity android:name=".ui.task.historyrecord.HistoryRecordActivity"/>
+        <activity android:name=".ui.task.inspectrecord.InspectRecordActivity"/>
+        <activity android:name=".ui.task.taskallot.TaskAllotActivity"/>
+        <activity android:name=".ui.task.taskinspect.TaskInspectActivity"/>
+        <activity android:name=".ui.task.taskstep.TaskStepActivity"/>
+        <activity android:name=".ui.task.stacalreport.ReportActionActivity"/>
+        <activity android:name=".ui.task.stacalreport.ReportResultActivity"/>
+        <activity android:name=".ui.task.taskdetails.TaskDetailsActivity"/>
+        <activity android:name=".ui.task.sceneplan.ScenePlanActivity"/>
+        <activity android:name=".ui.task.scenevideo.SceneVideoActivity"/>
+        <activity android:name=".ui.task.stacalreport.StaticsReportActivity"/>
+        <activity android:name=".ui.task.synctask.SyncActivity"/>
+        <activity android:name=".ui.task.tasktag.TaskTagactivity">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.bugly.beta.ui.BetaActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:theme="@android:style/Theme.Translucent"/>
+        <activity
+            android:name="cn.finalteam.rxgalleryfinal.ui.activity.MediaActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"
+           />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+             />
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+        <meta-data
+            android:name="com.taobao.android.hotfix.IDSECRET"
+            android:value="24586669-1"/>
+        <meta-data
+            android:name="com.taobao.android.hotfix.APPSECRET"
+            android:value="e6736c2c6fd107bf55d12edf624450bd"/>
+        <meta-data
+            android:name="com.taobao.android.hotfix.RSASECRET"
+            android:value="MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCnsLLBtGCfxUuK1L8z58RtlGeuEY4KKdldF7GF7yh1o/inmu7gsTeeZwN+OgDVvW0UZILOqhSbSjAlueiBgDJZcCXaGsg9Kts7GWCNYDEaQrsUVhVp+FzZFxPdvAd2Ux/pDyAWnnZQSOQRGzverXTIANKFl1tpRjp2JkMXawNZMxSMjozSTXlD1WYoiv29LXWLF5AoBntQ6lKhHDSI5IPkFpU75MQppAvY4i1SlYQ8Hg5tuLCZC6QVQe7CaR52+TIwMY73bJfoosKjBgD47Ylgv04//L1AVVADETuA9GpriZgzVC3L0+XnVEAll33G1TIPvNHadvjC68Ruhz6Xrx23AgMBAAECggEAGwkL6Nrx8RBX+4wNP4sQSjJw/Mlrwwu4NaAKSPOj7EOBZVQ/Sw6HTwyArasgU1V07qK9zB/zro2pcYulhqtqcqz4DU/gFKyCJ+cRf/mQMRGtI7w1O56FKaLk2wzjjxobvPFpVPw7SvpVesSPRHlmqJApYMxkOnbOGhpVGsNwCMNGYgm4+gox/PwP2tsUxgcs3Qvli2t9u0Rk6ihLAnp93A2p1SRO668Yh2pzcy/vTSP/rzHVE16GlTWrDENpIY1KKCViPAmp2gJ+m/5ka+nLyMkj+lLqqZN1dnJ7Vpj7RyHpF+EoKvj3FIV09SaRq2AEbUSzgFLrpYyhZaRNVVVS8QKBgQDj6P5rN8cbOT44dQCyH7Vh9PGJp55zmrL49gs76vG60t/GgVw/m0L7llKWr0jkJKmGv9FpJgiJh+HJsoxHztITl49iXpWOazeeXxHwepYjWBJpLvPcPFM9ftniO8xGgGeyVLqHFXm1eQ3i/Y7TJXre40xqX/n7sNJZQKt9nj5vBQKBgQC8W6ZZPQW2ZiAM0zVoOfzHjTbG/ZhQbYb2EzhjG4NsHOdjhYR+jDK7sIkGlUL4c6NR3N7K4oWmHaB9ZrxKNEf7Cs9gK20D4HT2p8BNTNAQioTA7iwVYtYMRIttZvjlvrd67egaOz5GyDLZJNjeJErGX7phQEfhSxQQwE3AEAFeiwKBgE7RwFNCOgivNlZ+GFyB3M/gzzvFDWZ7pNO2+9GgAjOTRDK5gDa7MmIh7bQRMMs95qckZX7Q2Xj+1lZT+nHHFB4Ud1EU1vInIFgUFvcs3gmhJtTbmRicgEkvOpkkBxSGydYBuXSIN8xL7kKHYEKjnqfAwiezw5eI4mZdmDFcbcklAoGADvuHTt/gvXKAKCUAwYqjRchAzDFN1U/xBU/gE1oT6RyfdzYepOZH/s/7BlAHJLYmDpPwENlV4jHHG1J5tblU5G4msrKhmEZZZ2lOjZeHkVlDWAlZ7lWPSyiEoq4nLDcwZxHXfYaq3Hx+NvGMYpcmb4Mb0zKGxS/wp6h0Rsu/ICMCgYEAp4ayV8bQSs7GZeC1XBRW/fif3P4wuhfV0KDv47O3qlOeR5pgaEJqaosUJFoCsfxISzbq3DK+SFYraCR00mRTDLz9Nn48c4WyRZ4STozcxrcYN/+YoTMF/qjac1UwkBxJ9W8Z1YtebEXlhLQrAp7RQl6PZCAReFM38wKlT9tj0a4="/>
+    </application>
+
+</manifest>

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+
+    <cn.connxun.morui.widget.AppTitle
+        style="@style/title_style"
+        app:canFinish="true"
+        app:centreText="@string/task_insdetail"
+        app:showBack="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_tags_pos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            tools:text="2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" / "/>
+
+        <TextView
+            android:id="@+id/tv_tags_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="12"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            tools:text="巡检点"/>
+    </LinearLayout>
+
+    <include layout="@layout/lineview"/>
+
+    <RelativeLayout
+        style="@style/item_style_noforend">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="检查点"/>
+
+        <TextView
+            android:id="@+id/tv_tag_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            tools:text="第七车间"/>
+    </RelativeLayout>
+
+    <include layout="@layout/lineview"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_tag_result"
+        style="@style/item_style_noforend">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:text="检查结果"/>
+
+        <LinearLayout
+            android:id="@+id/ll_tag_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:maxWidth="250dp"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <RadioGroup
+                android:id="@+id/rg_tag_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_tag_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text=" √"
+                    android:textColor="@color/checking"/>
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+
+                <RadioButton
+                    android:id="@+id/rb_tag_abnormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" ×"
+                    android:textColor="@android:color/holo_red_light"/>
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:id="@+id/ll_tag_need_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/et_tag_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="输入检查结果"
+                android:maxLines="1"
+                android:inputType="text"
+                android:maxWidth="150dp"/>
+
+            <TextView
+                android:id="@+id/tv_tag_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="单位"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <include layout="@layout/lineview"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_tag_need_edit2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/btn_tag_photo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/radios_bg_blue_btn"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="拍照"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:id="@+id/btn_tag_remark"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/radios_bg_blue_btn"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="备注"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_tag_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/radios_bg_blue_btn"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="保存"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/btn_tag_last"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/radios_bg_blue_solid_btn"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="上一个"
+        android:textColor="@color/colorPrimary"/>
+
+    <Button
+        android:id="@+id/btn_re_takephotp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/radios_bg_blue_solid_btn"
+        android:clickable="true"
+        android:visibility="gone"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="重新拍照"
+        android:textColor="@color/colorPrimary"/>
+
+    <ImageView
+        android:id="@+id/iv_taks_img"
+        android:layout_margin="20dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

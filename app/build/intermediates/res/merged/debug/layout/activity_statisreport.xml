@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+
+    <cn.connxun.morui.widget.AppTitle
+        style="@style/title_style"
+        app:canFinish="true"
+        app:centreText="@string/title_statisreport"
+        app:showBack="true"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <Button android:id="@+id/btn_sta_rep1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/radios_bg_blue_btn"
+                android:text="检查结果报表"
+                android:textColor="@color/white"/>
+
+            <Button android:id="@+id/btn_sta_rep2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/radios_bg_blue_btn"
+                android:text="检查行为报表"
+                android:textColor="@color/white"/>
+
+            <Button android:id="@+id/btn_sta_rep3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/radios_bg_blue_btn"
+                android:text="自由报表"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
