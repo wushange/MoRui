@@ -16,7 +16,6 @@ import javax.inject.Inject;
 import cn.connxun.morui.constants.enums.TASKSUB_CHECK_RESULT;
 import cn.connxun.morui.constants.enums.TASKSUB_CHECK_STATUS;
 import cn.connxun.morui.constants.enums.TASK_ISSUBJUDGE;
-import cn.connxun.morui.constants.enums.TASK_STATUS;
 import cn.connxun.morui.data.local.UserStorge;
 import cn.connxun.morui.db.TaskDao;
 import cn.connxun.morui.db.TaskSubDao;
@@ -88,7 +87,6 @@ public class TaskStepPresenter extends BasePresenter<TaskStepContract.TaskStepVi
     @Override
     public void completeTask() {
         Task allotTask = allotTaskDao.queryBuilder().where(TaskDao.Properties.Id.eq(mView.getThisTaskId())).unique();
-        allotTask.setStatus(TASK_STATUS.CHECKDONE.value());
         allotTaskDao.update(allotTask);
         mView.completeTask(allotTask);
     }
@@ -123,7 +121,9 @@ public class TaskStepPresenter extends BasePresenter<TaskStepContract.TaskStepVi
     public void save() {
         TaskSub currTask = mView.getThisTask();
         mView.indexAdd();
-        currTask.setCheckResultValue("" + mView.getEditText());
+        if (mView.getIsSubJudge() != TASK_ISSUBJUDGE.ISSUBJUDGE.value()) {
+            currTask.setCheckResultValue("" + mView.getEditText());
+        }
         currTask.setCheckStatus(TASKSUB_CHECK_STATUS.CHECKDONE.value());
         subListBeanDao.update(currTask);
         int successCount = 0;

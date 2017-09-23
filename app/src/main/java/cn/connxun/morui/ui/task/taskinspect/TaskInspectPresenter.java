@@ -19,6 +19,7 @@ import cn.connxun.morui.ui.base.BasePresenter;
 import io.reactivex.Observer;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 
 /**
  * Created by wanglj on 16/7/4.
@@ -113,8 +114,12 @@ public class TaskInspectPresenter extends BasePresenter<TaskInspectContract.Task
 
                 @Override
                 public void onNext(@NonNull Object o) {
-                    ToastUtils.showShort("上传成功");
-                    stroge.deleteTasks(tasks);
+                    stroge.deleteTasks(tasks).subscribe(new Consumer<Boolean>() {
+                        @Override
+                        public void accept(@NonNull Boolean aBoolean) throws Exception {
+                            ToastUtils.showShort("上传成功");
+                        }
+                    });
                 }
 
                 @Override
@@ -152,8 +157,9 @@ public class TaskInspectPresenter extends BasePresenter<TaskInspectContract.Task
             @Override
             public void onNext(@NonNull List<Task> tasks) {
                 ToastUtils.showShort("下载成功");
-                stroge.saveAllTask(tasks);
-                stroge.getAllTask_OffLine().subscribe(tasks1 -> mView.showList(tasks1), throwable -> mView.onError(throwable.getMessage()));
+                stroge.saveAllTask(tasks).subscribe(aBoolean -> 
+                        stroge.getAllTask_OffLine().subscribe(tasks1 ->
+                                mView.showList(tasks1), throwable -> mView.onError(throwable.getMessage())));
             }
 
             @Override
@@ -172,5 +178,6 @@ public class TaskInspectPresenter extends BasePresenter<TaskInspectContract.Task
     public void getOfflineTaskList() {
         stroge.getAllTask_OffLine().subscribe(tasks -> mView.showOfflineList(tasks), throwable -> mView.onError(throwable.getMessage()));
 
-    }
+    } 
+
 }

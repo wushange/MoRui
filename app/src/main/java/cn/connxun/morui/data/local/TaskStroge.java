@@ -2,10 +2,13 @@ package cn.connxun.morui.data.local;
 
 import android.content.Context;
 
+import com.blankj.utilcode.util.TimeUtils;
 import com.orhanobut.logger.Logger;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import cn.connxun.morui.constants.enums.TASKSUB_CHECK_STATUS;
 import cn.connxun.morui.constants.enums.TASK_STATUS;
@@ -76,14 +79,20 @@ public class TaskStroge {
 
         return Observable.create((ObservableOnSubscribe<List<Task>>) e -> {
             List<Task> allotTasks = taskDao._queryUser_TaskList(userStorge.getUserId());
-            for (Task a : allotTasks) {
-                List<TaskSub> allList = taskSubDao._queryTask_TaskSubList(a.getId());
+            for (Task data : allotTasks) {
+                long endTime = TimeUtils.string2Millis(data.getEndDate(), new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()));
+                long nowTime = TimeUtils.getNowMills();
+                if (endTime < nowTime) {
+                    data.setCheckStatus(TASK_STATUS.CHECKDONE.value());
+                    data.setStatus(TASK_STATUS.CHECK_MISS.value());
+                }
+                List<TaskSub> allList = taskSubDao._queryTask_TaskSubList(data.getId());
                 List<TaskSub> doneList = taskSubDao.queryBuilder().where(
                         TaskSubDao.Properties.CheckStatus.eq(TASKSUB_CHECK_STATUS.CHECKDONE.value())
-                        , TaskSubDao.Properties.TaskId.eq(a.getId())).list();
+                        , TaskSubDao.Properties.TaskId.eq(data.getId())).list();
                 Logger.e("总任务数:" + allList.size() + "--完成任务数量：" + doneList.size());
                 if (doneList.size() == allList.size()) {
-                    a.setCheckStatus(TASK_STATUS.CHECKDONE.value());
+                    data.setCheckStatus(TASK_STATUS.CHECKDONE.value());
                 }
             }
             e.onNext(allotTasks);
@@ -109,12 +118,13 @@ public class TaskStroge {
                         TaskSubDao.Properties.CheckStatus.eq(TASKSUB_CHECK_STATUS.CHECKDONE.value())
                         , TaskSubDao.Properties.TaskId.eq(a.getId())).list();
                 Logger.e("获取所有未同步任务 总任务数:" + allList.size() + "--完成任务数量：" + doneList.size());
-                if(TASK_STATUS.CHECKING.value()!=a.getCheckStatus()&&TASK_STATUS.NOCHECK.value()!=a.getCheckStatus()){
+                if (TASK_STATUS.CHECKING.value() != a.getCheckStatus() && TASK_STATUS.NOCHECK.value() != a.getCheckStatus()) {
+                    if (doneList.size() == allList.size()) {
+                        a.setStatus(3);
+                    }
                     tasks.add(a);
                 }
-                if (doneList.size() == allList.size()) {
-                    tasks.add(a);
-                }
+
             }
             e.onNext(tasks);
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
@@ -164,8 +174,8 @@ public class TaskStroge {
             public void subscribe(@NonNull ObservableEmitter<Boolean> e) throws Exception {
                 for (Task a : allotTasks) {
                     taskSubDao.deleteInTx(a.getTaskSubList());
+                    taskDao.deleteInTx(a);
                 }
-                taskDao.deleteInTx();
                 e.onNext(true);
             }
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());

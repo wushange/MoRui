@@ -20,6 +20,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.blankj.utilcode.util.StringUtils;
 import com.bumptech.glide.Glide;
 import com.orhanobut.logger.Logger;
 import com.tbruyelle.rxpermissions2.RxPermissions;
@@ -251,7 +252,7 @@ public class TaskStepActivity extends BaseSwipeBackActivity implements TaskStepC
             btnReTakephotp.setVisibility(View.VISIBLE);
             RxUtil.runOnIoThreadTask().observeOn(AndroidSchedulers.mainThread()).subscribe(o -> {
                 Bitmap                bitmap = ImageUtils.getSmallBitmap(imgPath);
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ByteArrayOutputStream baos   = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 40, baos);
                 byte[] bytes = baos.toByteArray();
                 Glide.with(getContext())
@@ -279,34 +280,20 @@ public class TaskStepActivity extends BaseSwipeBackActivity implements TaskStepC
         tvTagsSize.setText(total);
         tvTagName.setText(mTask.getEquipmentName() + "-" + mTask.getPointName());
         if (mTask.getFilePath() != null) {
+            btnReTakephotp.setVisibility(View.VISIBLE);
+            ivTaksImg.setVisibility(View.VISIBLE);
             ivTaksImg.setImageBitmap(ImageUtils.stringtoBitmap(mTask.getFilePath()));
+        } else {
+            btnReTakephotp.setVisibility(View.GONE);
+            ivTaksImg.setVisibility(View.GONE);
         }
-        etTagResult.setText(mTask.getCheckResultValue());
-        etTagResult.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                mTask.setCheckResultValue(s.toString());
-            }
-        });
-        rgTagResult.setOnCheckedChangeListener(oncheckListener);
         if (mTask.getIsSubJudge() == TASK_ISSUBJUDGE.ISSUBJUDGE.value()) {
             showNormalLayout();
         } else {
             showEditLayout();
 
         }
-        btnTagRemark.setOnClickListener(v -> mOperation.showInputDialog("请输入备注", "请输入此次检查点的备注信息", mTask.getRemark(), (dialog, input) -> {
-            mTask.setRemark(input.toString());
-            Toast("备注成功");
-        }));
+
     }
 
     private void showEditLayout() {
@@ -314,17 +301,46 @@ public class TaskStepActivity extends BaseSwipeBackActivity implements TaskStepC
         llTagNeedEdit2.setVisibility(View.VISIBLE);
         llTagNormal.setVisibility(View.GONE);
         tvTagsUnit.setText(mTask.getUnit());
+        if (!StringUtils.isEmpty(mTask.getCheckResultValue())) {
+            etTagResult.setText(mTask.getCheckResultValue());
+            etTagResult.setSelection(mTask.getCheckResultValue().length());
+        }
+        etTagResult.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                Logger.e("--beforeTextChanged-");
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Logger.e("--onTextChanged-");
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                Logger.e("--afterTextChanged-");
+                mTask.setCheckResultValue(s.toString());
+            }
+        });
+        btnTagRemark.setOnClickListener(v -> mOperation.showInputDialog("请输入备注", "请输入此次检查点的备注信息", mTask.getRemark(), (dialog, input) -> {
+            mTask.setRemark(input.toString());
+            Toast("备注成功");
+        }));
     }
 
     private void showNormalLayout() {
         llTagNeedEdit.setVisibility(View.GONE);
         llTagNeedEdit2.setVisibility(View.GONE);
         llTagNormal.setVisibility(View.VISIBLE);
+        rgTagResult.setOnCheckedChangeListener(oncheckListener);
         if (String.valueOf(TASKSUB_CHECK_RESULT.ABNORMAL.value()).equals(mTask.getCheckResult())) {
             rbTagAbnormal.setChecked(true);
+            mTask.setCheckResultValue(TASKSUB_SUBJECTIVEJUDMENT.ABNORMAL.value() + "");
+            Logger.e(" rbTagAbnormal.setChecked(true);");
         } else {
             rbTagNormal.setChecked(true);
-
+            mTask.setCheckResultValue(TASKSUB_SUBJECTIVEJUDMENT.NORMAL.value() + "");
+            Logger.e("rbTagNormal.setChecked(true);");
         }
     }
 
