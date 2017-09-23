@@ -7,7 +7,6 @@ import com.orhanobut.logger.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.connxun.morui.components.rxjava.RxUtil;
 import cn.connxun.morui.constants.enums.TASKSUB_CHECK_STATUS;
 import cn.connxun.morui.constants.enums.TASK_STATUS;
 import cn.connxun.morui.db.TaskDao;
@@ -16,6 +15,12 @@ import cn.connxun.morui.db.Task_AllotDao;
 import cn.connxun.morui.entity.Task;
 import cn.connxun.morui.entity.TaskSub;
 import cn.connxun.morui.entity.Task_Allot;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by wushange on 2017/8/19.
@@ -42,8 +47,8 @@ public class TaskStroge {
      *
      * @param tasks
      */
-    public void saveAllTask(List<Task> tasks) {
-        RxUtil.runOnIoThreadTask().subscribe(o -> {
+    public Observable<Boolean> saveAllTask(List<Task> tasks) {
+        return Observable.create((ObservableOnSubscribe<Boolean>) e -> {
             for (Task allotTask : tasks) {
                 allotTask.setUserId(userStorge.getUserId());
                 if (taskDao.queryBuilder().where(TaskDao.Properties.Id.eq(allotTask.getId())).unique() == null) {
@@ -56,9 +61,9 @@ public class TaskStroge {
                     }
 
                 }
-
             }
-        });
+            e.onNext(true);
+        }).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io());
 
     }
 
@@ -67,9 +72,10 @@ public class TaskStroge {
      *
      * @return
      */
-    public List<Task> getAllTask_OffLine() {
-        List<Task> allotTasks = taskDao._queryUser_TaskList(userStorge.getUserId());
-        RxUtil.runOnIoThreadTask().subscribe(o -> {
+    public Observable<List<Task>> getAllTask_OffLine() {
+
+        return Observable.create((ObservableOnSubscribe<List<Task>>) e -> {
+            List<Task> allotTasks = taskDao._queryUser_TaskList(userStorge.getUserId());
             for (Task a : allotTasks) {
                 List<TaskSub> allList = taskSubDao._queryTask_TaskSubList(a.getId());
                 List<TaskSub> doneList = taskSubDao.queryBuilder().where(
@@ -80,9 +86,10 @@ public class TaskStroge {
                     a.setCheckStatus(TASK_STATUS.CHECKDONE.value());
                 }
             }
-        });
+            e.onNext(allotTasks);
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
 
-        return allotTasks;
+
     }
 
     /**
@@ -92,32 +99,38 @@ public class TaskStroge {
      *
      * @return
      */
-    public List<Task> getAllTask_NoSyncList() {
-        List<Task> tasks = new ArrayList<>();
-        List<Task> allotTasks = taskDao._queryUser_TaskList(userStorge.getUserId());
-        RxUtil.runOnIoThreadTask().subscribe(o -> {
+    public Observable<List<Task>> getAllTask_NoSyncList() {
+        return Observable.create((ObservableOnSubscribe<List<Task>>) e -> {
+            List<Task> tasks      = new ArrayList<>();
+            List<Task> allotTasks = taskDao._queryUser_TaskList(userStorge.getUserId());
             for (Task a : allotTasks) {
                 List<TaskSub> allList = taskSubDao._queryTask_TaskSubList(a.getId());
                 List<TaskSub> doneList = taskSubDao.queryBuilder().where(
                         TaskSubDao.Properties.CheckStatus.eq(TASKSUB_CHECK_STATUS.CHECKDONE.value())
                         , TaskSubDao.Properties.TaskId.eq(a.getId())).list();
                 Logger.e("获取所有未同步任务 总任务数:" + allList.size() + "--完成任务数量：" + doneList.size());
+                if(TASK_STATUS.CHECKING.value()!=a.getCheckStatus()&&TASK_STATUS.NOCHECK.value()!=a.getCheckStatus()){
+                    tasks.add(a);
+                }
                 if (doneList.size() == allList.size()) {
                     tasks.add(a);
                 }
             }
-        });
-
-        return tasks;
+            e.onNext(tasks);
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 
-    public void saveAllAllotTask(List<Task_Allot> tasks) {
-        RxUtil.runOnIoThreadTask().subscribe(o -> {
-            for (Task_Allot task : tasks) {
-                task.setUserId(userStorge.getUserId());
+    public Observable<Boolean> saveAllAllotTask(List<Task_Allot> tasks) {
+        return Observable.create(new ObservableOnSubscribe<Boolean>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<Boolean> e) throws Exception {
+                for (Task_Allot task : tasks) {
+                    task.setUserId(userStorge.getUserId());
+                }
+                task_allotDao.insertOrReplaceInTx(tasks);
+                e.onNext(true);
             }
-            task_allotDao.insertOrReplaceInTx(tasks);
-        });
+        }).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io());
 
     }
 
@@ -145,13 +158,17 @@ public class TaskStroge {
      *
      * @param allotTasks
      */
-    public void deleteTasks(List<Task> allotTasks) {
-        RxUtil.runOnIoThreadTask().subscribe(o -> {
-            for (Task a : allotTasks) {
-                taskSubDao.deleteInTx(a.getTaskSubList());
+    public Observable<Boolean> deleteTasks(List<Task> allotTasks) {
+        return Observable.create(new ObservableOnSubscribe<Boolean>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<Boolean> e) throws Exception {
+                for (Task a : allotTasks) {
+                    taskSubDao.deleteInTx(a.getTaskSubList());
+                }
+                taskDao.deleteInTx();
+                e.onNext(true);
             }
-            taskDao.deleteInTx();
-        });
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
 
     }
 }

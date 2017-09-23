@@ -56,7 +56,7 @@ public class InspectRecordAdapter extends RecyclerArrayAdapter<Task> {
         @BindView(R.id.tv_item_task_synctime)
         TextView tvItemTaskSynctime;
         @BindView(R.id.btn_taskoper)
-        Button btnTaskoper;
+        Button   btnTaskoper;
 
         public ViewHolder(ViewGroup group) {
             super(group, R.layout.item_task_inspect);
@@ -66,7 +66,7 @@ public class InspectRecordAdapter extends RecyclerArrayAdapter<Task> {
         @Override
         public void setData(Task data) {
             super.setData(data);
-            String status = "未检查";
+            String status     = "未检查";
             String actionText = "开始检查";
             if (data.getCheckStatus() == TASK_STATUS.NOCHECK.value()) {
                 tvItemTaskStatus.setTextColor(getContext().getResources().getColor(R.color.nocheck));
@@ -81,6 +81,13 @@ public class InspectRecordAdapter extends RecyclerArrayAdapter<Task> {
                 status = "检查完成";
                 actionText = "查看巡查结果详情";
             }
+            if (data.getStatus() == TASK_STATUS.CHECK_MISS.value()) {
+                status = "漏检";
+                actionText = "任务已过期";
+                btnTaskoper.setEnabled(false);
+            }else{
+                btnTaskoper.setEnabled(true);
+            }
             tvItemTaskName.setText(data.getName());
             tvItemTaskStatus.setText(status);
             tvItemTaskInstime.setText(data.getStartDate());
@@ -92,7 +99,7 @@ public class InspectRecordAdapter extends RecyclerArrayAdapter<Task> {
     }
 
 
-    interface OnItemButtonClickListener{
+    interface OnItemButtonClickListener {
         void OnItemButtonClickListener(View v, Task da);
     }
 }

@@ -11,6 +11,7 @@ android/support/design/widget/FloatingActionButtonIcs.class
 io/reactivex/subjects/PublishSubject.class
 com/blankj/utilcode/util/SpanUtils$CustomTypefaceSpan.class
 android/support/v4/app/NotificationCompat$Extender.class
+cn/connxun/morui/ui/task/taskchange/TaskChangeDetailActivity.class
 cn/connxun/morui/ui/task/taskstep/TaskStepActivity$$Lambda$4.class
 android/support/v4/view/MenuCompat.class
 com/facebook/stetho/inspector/protocol/module/DOM$RGBAColor.class
@@ -52,7 +53,6 @@ okhttp3/ResponseBody$1.class
 javax/annotation/Nonnull.class
 com/chad/library/adapter/base/BaseQuickAdapter.class
 android/support/v4/net/ConnectivityManagerCompatHoneycombMR2.class
-cn/connxun/morui/data/local/TaskStroge$$Lambda$5.class
 com/facebook/stetho/inspector/protocol/module/Database$ExecuteSQLResponse.class
 com/facebook/stetho/inspector/protocol/module/Runtime$ExceptionDetails.class
 com/jude/easyrecyclerview/adapter/RecyclerArrayAdapter.class
@@ -71,6 +71,7 @@ com/taobao/sophix/core/dex/a/b.class
 android/support/v4/media/MediaBrowserCompat$MediaBrowserImplApi21.class
 android/support/v4/app/ActionBarDrawerToggle.class
 android/support/v4/media/MediaBrowserCompat$ConnectionCallback.class
+cn/connxun/morui/ui/task/inspectrecord/InspectRecordPresenter$$Lambda$1.class
 com/facebook/stetho/inspector/network/DownloadingAsyncPrettyPrinterFactory.class
 com/facebook/stetho/inspector/elements/DocumentProvider.class
 android/support/v4/app/FragmentActivity.class
@@ -102,6 +103,7 @@ android/support/v4/app/Fragment$OnStartEnterTransitionListener.class
 android/support/v4/app/NotificationCompatApi20.class
 com/taobao/sophix/c/k$a.class
 com/facebook/stetho/inspector/network/NetworkPeerManager.class
+cn/connxun/morui/ui/task/taskchange/TaskChangePresenter$$Lambda$1.class
 com/afollestad/materialdialogs/color/ColorChooserDialog$6.class
 android/support/multidex/MultiDexExtractor$1.class
 retrofit2/http/FieldMap.class
@@ -145,6 +147,7 @@ com/taobao/sophix/a/g$1.class
 android/support/v4/app/SupportActivity.class
 android/support/annotation/RequiresPermission$Read.class
 com/tencent/smtt/export/external/interfaces/IX5WebViewBase.class
+cn/connxun/morui/api/RectificationApi$$Lambda$1.class
 android/support/design/widget/Snackbar$SnackbarLayout.class
 android/support/v4/app/NotificationCompat$NotificationVisibility.class
 com/afollestad/materialdialogs/color/CircleView.class
@@ -270,6 +273,7 @@ com/facebook/stetho/inspector/protocol/module/Page$ExecutionContextDescription.c
 android/support/v7/widget/OpReorderer$Callback.class
 com/afollestad/materialdialogs/MaterialDialog.class
 retrofit2/http/HEAD.class
+cn/connxun/morui/ui/task/taskchange/TaskChangeActivity$$Lambda$1.class
 android/support/v4/media/MediaBrowserCompat$MediaItem$Flags.class
 okhttp3/Cache$2.class
 com/blankj/utilcode/util/SpanUtils.class
@@ -346,6 +350,7 @@ com/bumptech/glide/DrawableRequestBuilder.class
 cn/connxun/morui/ui/notice/adapter/NoticeAdapter.class
 android/support/v4/app/FragmentController.class
 com/facebook/stetho/inspector/protocol/module/Page$StartScreencastRequest.class
+cn/connxun/morui/ui/task/inspectrecord/InspectRecordPresenter$$Lambda$2.class
 android/support/v7/appcompat/R$layout.class
 android/support/v4/media/MediaBrowserCompat$MediaItem$1.class
 org/greenrobot/greendao/annotation/ToOne.class
@@ -353,6 +358,7 @@ android/support/design/widget/ViewOffsetBehavior.class
 retrofit2/Platform.class
 com/facebook/stetho/inspector/jsonrpc/PendingRequest.class
 cn/connxun/morui/ui/task/taskallot/TaskAllotFragment$$Lambda$4.class
+cn/connxun/morui/ui/task/taskchange/TaskChangePresenter$$Lambda$2.class
 android/support/v7/widget/RecyclerView$RecyclerListener.class
 android/support/v4/widget/SimpleCursorAdapter.class
 android/support/v4/app/NotificationCompatApi24$Builder.class
@@ -406,6 +412,7 @@ android/support/annotation/BoolRes.class
 android/support/v4/media/MediaMetadataCompat.class
 com/afollestad/materialdialogs/MaterialDialog$SingleButtonCallback.class
 com/facebook/stetho/Stetho$DefaultInspectorModulesBuilder.class
+cn/connxun/morui/ui/task/taskchange/TaskChangeActivity.class
 com/jude/easyrecyclerview/swipe/MaterialProgressDrawable$Ring.class
 okio/Buffer.class
 android/support/v4/view/ViewCompat$JBViewCompatImpl.class
@@ -428,6 +435,7 @@ com/facebook/stetho/json/annotation/JsonProperty.class
 io/reactivex/processors/AsyncProcessor.class
 org/greenrobot/greendao/annotation/OrderBy.class
 android/support/v4/app/FragmentActivity$NonConfigurationInstances.class
+cn/connxun/morui/ui/task/taskchange/TaskChangePresenter.class
 android/support/v7/widget/RecyclerView$LayoutManager$LayoutPrefetchRegistry.class
 android/support/v4/media/MediaMetadataCompat$1.class
 com/afollestad/materialdialogs/commons/R$drawable.class
@@ -480,7 +488,6 @@ retrofit2/http/PartMap.class
 android/support/v4/media/session/MediaButtonReceiver.class
 android/support/v4/net/ConnectivityManagerCompat.class
 android/support/annotation/RequiresPermission.class
-cn/connxun/morui/ui/task/taskstep/TaskStepActivity$$Lambda$3.class
 com/tencent/tinker/loader/shareutil/SharePatchFileUtil.class
 cn/connxun/morui/ui/login/LoginPresenter.class
 com/facebook/stetho/inspector/protocol/module/DOMStorage$DomStorageItemRemovedParams.class
@@ -536,6 +543,7 @@ com/flipboard/bottomsheet/commons/ImagePickerSheetView$ImagePickerTile.class
 android/support/v4/view/ViewCompatHC.class
 com/chad/library/adapter/base/BaseQuickAdapter$7.class
 com/chad/library/adapter/base/BaseQuickAdapter$2.class
+cn/connxun/morui/ui/task/tasktag/TaskTagactivity$$Lambda$4.class
 com/facebook/stetho/dumpapp/plugins/SharedPreferencesDumperPlugin.class
 cn/connxun/morui/di/module/DBModule.class
 android/support/annotation/StyleRes.class
@@ -544,6 +552,7 @@ android/support/design/widget/Snackbar.class
 com/facebook/stetho/inspector/protocol/module/Network$LoadingFailedParams.class
 android/support/design/widget/ValueAnimatorCompat$AnimatorListener.class
 android/support/design/widget/BaseTransientBottomBar$5.class
+cn/connxun/morui/ui/task/taskinspect/TaskInspectPresenter$$Lambda$5.class
 com/facebook/stetho/inspector/protocol/module/Runtime$GetPropertiesRequest.class
 com/facebook/stetho/inspector/protocol/module/Database$Error.class
 com/facebook/stetho/inspector/protocol/module/Page$ScreencastFrameEvent.class
@@ -552,6 +561,7 @@ android/support/annotation/RestrictTo.class
 android/support/v4/media/MediaBrowserCompatApi21$MediaItem.class
 com/chad/library/adapter/base/BaseQuickAdapter$1.class
 okio/BufferedSource.class
+cn/connxun/morui/ui/task/tasktag/TaskTagactivity$$Lambda$5.class
 android/support/v4/view/ViewConfigurationCompat.class
 dagger/multibindings/IntKey.class
 android/support/v4/app/Fragment$AnimationInfo.class
@@ -606,6 +616,7 @@ com/yalantis/ucrop/view/widget/HorizontalProgressWheelView$ScrollingListener.cla
 com/alibaba/fastjson/serializer/SerializerFeature.class
 com/chad/library/adapter/base/BaseQuickAdapter$OnItemChildLongClickListener.class
 android/support/v4/widget/ViewDragHelper$Callback.class
+cn/connxun/morui/ui/task/taskinspect/TaskInspectPresenter$$Lambda$4.class
 android/support/design/widget/BaseTransientBottomBar$6.class
 okio/Segment.class
 android/support/design/widget/BottomSheetBehavior$State.class
@@ -659,7 +670,6 @@ android/support/design/widget/SnackbarManager$Callback.class
 com/facebook/stetho/inspector/protocol/module/Database$GetDatabaseTableNamesResponse.class
 android/support/v4/media/MediaBrowserCompat$MediaBrowserImplApi23.class
 android/support/v4/view/ViewCompat$KitKatViewCompatImpl.class
-cn/connxun/morui/ui/task/tasktag/TaskTagactivity$$Lambda$2.class
 retrofit2/http/PUT.class
 com/facebook/stetho/inspector/network/NetworkEventReporterImpl.class
 com/chad/library/adapter/base/BaseQuickAdapter$UpFetchListener.class
@@ -671,6 +681,7 @@ android/support/design/widget/BottomSheetBehavior$BottomSheetCallback.class
 com/afollestad/materialdialogs/util/DialogUtils.class
 android/support/v4/app/NotificationCompat$NotificationCompatImplJellybean.class
 com/facebook/stetho/inspector/elements/AbstractChainedDescriptor.class
+cn/connxun/morui/ui/task/taskinspect/TaskInspectPresenter$$Lambda$6.class
 com/yalantis/ucrop/model/AspectRatio.class
 android/support/design/widget/BaseTransientBottomBar$3.class
 android/support/design/widget/TabLayout$1.class
@@ -693,7 +704,6 @@ android/support/v4/net/ConnectivityManagerCompat$Api24ConnectivityManagerCompatI
 android/support/v7/widget/RecyclerView$ViewHolder.class
 com/facebook/stetho/inspector/protocol/module/CSS$CSSStyle.class
 com/chad/library/adapter/base/BaseQuickAdapter$3.class
-cn/connxun/morui/ui/task/tasktag/TaskTagactivity$$Lambda$3.class
 android/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo.class
 android/support/v7/view/menu/MenuPresenter.class
 android/support/v4/media/RatingCompat$Style.class
@@ -801,7 +811,6 @@ android/support/v4/view/AbsSavedState.class
 dagger/releasablereferences/CanReleaseReferences.class
 android/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper.class
 com/facebook/stetho/inspector/protocol/module/CSS$RuleMatch.class
-cn/connxun/morui/ui/task/taskstep/TaskStepActivity$$Lambda$2.class
 com/taobao/sophix/aidl/b$a$a.class
 android/support/v4/app/TaskStackBuilder.class
 com/bumptech/glide/load/model/GenericLoaderFactory.class
@@ -819,6 +828,7 @@ android/support/v4/media/MediaBrowserCompat$SearchCallback.class
 javax/inject/Scope.class
 android/support/v7/app/ActionBar$LayoutParams.class
 android/support/v4/view/ViewCompatICS.class
+cn/connxun/morui/ui/task/taskchange/TaskChangePresenter$$Lambda$3.class
 com/facebook/stetho/inspector/protocol/module/Database$GetDatabaseTableNamesRequest.class
 android/support/v4/media/session/PlaybackStateCompat$Builder.class
 android/support/v4/media/RatingCompat$StarStyle.class
@@ -842,6 +852,7 @@ com/flipboard/bottomsheet/commons/ImagePickerSheetView$1.class
 android/support/v7/widget/ListPopupWindow.class
 android/support/v4/view/animation/FastOutSlowInInterpolator.class
 com/alibaba/fastjson/annotation/JSONType.class
+cn/connxun/morui/ui/task/taskinspect/TaskInspectPresenter$$Lambda$1.class
 butterknife/internal/Utils.class
 com/yalantis/ucrop/UCropActivity$4.class
 okhttp3/Connection.class
@@ -865,6 +876,7 @@ android/support/v7/view/menu/CascadingMenuPopup$HorizPosition.class
 android/support/design/widget/CoordinatorLayout.class
 android/support/v4/view/ViewPager$SavedState.class
 com/facebook/stetho/inspector/protocol/module/Inspector.class
+cn/connxun/morui/ui/task/taskinspect/TaskInspectPresenter$4$$Lambda$2.class
 android/support/v7/widget/RecyclerView$RecycledViewPool.class
 android/support/annotation/TransitionRes.class
 cn/connxun/morui/di/PerActivity.class
@@ -879,7 +891,6 @@ com/facebook/stetho/inspector/protocol/module/Debugger.class
 android/support/v4/view/LayoutInflaterFactory.class
 android/support/v7/view/ActionMode$Callback.class
 com/facebook/stetho/inspector/protocol/module/DOM$ChildNodeRemovedEvent.class
-cn/connxun/morui/data/local/TaskStroge$$Lambda$7.class
 android/support/v4/app/SharedElementCallback.class
 cn/connxun/morui/ui/contacts/ContactsActivity.class
 android/support/annotation/AnyThread.class
@@ -925,9 +936,11 @@ com/bumptech/glide/load/model/stream/StreamByteArrayLoader.class
 android/support/v4/content/res/ConfigurationHelper.class
 com/taobao/sophix/a/e$1.class
 com/facebook/stetho/inspector/protocol/module/DOM$GetDocumentResponse.class
+cn/connxun/morui/ui/task/taskchange/TaskChangePresenter$$Lambda$4.class
 com/facebook/stetho/inspector/protocol/module/Network$DataReceivedParams.class
 com/facebook/stetho/inspector/protocol/module/DOM$HighlightNodeRequest.class
 org/greenrobot/eventbus/Subscribe.class
+cn/connxun/morui/ui/task/taskinspect/TaskInspectPresenter$4$$Lambda$1.class
 android/support/v4/app/Fragment$InstantiationException.class
 com/afollestad/materialdialogs/commons/R$attr.class
 com/yalantis/ucrop/callback/BitmapCropCallback.class
@@ -953,6 +966,7 @@ com/yalantis/ucrop/R.class
 android/support/v4/widget/SearchViewCompat$OnCloseListenerCompat.class
 android/support/v7/view/menu/CascadingMenuPopup$CascadingMenuInfo.class
 android/support/v4/app/NotificationCompat$NotificationCompatImplBase.class
+cn/connxun/morui/ui/task/taskstep/TaskStepActivity$$Lambda$15.class
 android/support/v7/widget/AdapterHelper.class
 butterknife/OnCheckedChanged.class
 android/support/v4/media/MediaBrowserCompatApi21.class
@@ -967,6 +981,7 @@ com/facebook/stetho/Stetho.class
 android/support/design/widget/CoordinatorLayout$LayoutParams.class
 butterknife/OnPageChange.class
 com/facebook/stetho/dumpapp/DumpappHttpSocketLikeHandler.class
+cn/connxun/morui/data/local/TaskStroge$$Lambda$3.class
 android/support/v4/util/ContainerHelpers.class
 android/support/annotation/NonNull.class
 com/facebook/stetho/inspector/protocol/module/Worker.class
@@ -988,6 +1003,7 @@ android/support/v4/media/session/MediaSessionCompat$QueueItem.class
 javax/annotation/Nonnegative$Checker.class
 cn/connxun/morui/ui/task/taskallot/TaskAllotFragment$$Lambda$3.class
 com/facebook/stetho/inspector/protocol/module/CSS$CSSRule.class
+cn/connxun/morui/data/local/TaskStroge$$Lambda$2.class
 butterknife/OnItemClick.class
 com/bumptech/glide/GenericRequestBuilder.class
 android/support/v4/view/ViewPager$DecorView.class
@@ -1025,6 +1041,7 @@ retrofit2/http/OPTIONS.class
 io/reactivex/subjects/SingleSubject.class
 butterknife/BindBool.class
 com/bumptech/glide/load/resource/bitmap/TransformationUtils.class
+cn/connxun/morui/ui/task/taskchange/TaskChangeAdapter.class
 org/greenrobot/greendao/annotation/Index.class
 android/support/v7/widget/StaggeredGridLayoutManager.class
 android/support/v4/media/session/PlaybackStateCompatApi21.class
@@ -1042,7 +1059,6 @@ android/support/v4/view/ViewCompatLollipop.class
 android/support/v4/widget/CursorAdapter.class
 android/support/v7/widget/RecyclerView$ItemAnimator$ItemAnimatorListener.class
 com/facebook/stetho/inspector/protocol/module/Runtime$PropertyDescriptor.class
-cn/connxun/morui/data/local/TaskStroge$$Lambda$4.class
 com/chad/library/adapter/base/BaseQuickAdapter$RequestLoadMoreListener.class
 io/reactivex/internal/util/SuppressAnimalSniffer.class
 com/just/library/WebChromeClientProgressWrapper.class
@@ -1063,6 +1079,7 @@ android/support/v4/view/KeyEventCompat.class
 javax/annotation/PropertyKey.class
 com/taobao/sophix/SophixManager.class
 com/facebook/stetho/inspector/protocol/module/DOM$AttributeRemovedEvent.class
+cn/connxun/morui/ui/task/taskchange/TaskChangeDetailActivity$$Lambda$4.class
 android/support/design/widget/CoordinatorLayout$DefaultBehavior.class
 android/support/v7/widget/GapWorker$LayoutPrefetchRegistryImpl.class
 android/support/v4/text/util/LinkifyCompat$LinkSpec.class
@@ -1110,6 +1127,7 @@ com/taobao/sophix/d/a.class
 android/support/design/widget/ViewUtilsLollipop.class
 com/facebook/stetho/inspector/jsonrpc/protocol/JsonRpcError.class
 android/support/design/widget/ValueAnimatorCompat.class
+cn/connxun/morui/api/RectificationApiService.class
 android/support/v7/widget/RecyclerViewAccessibilityDelegate.class
 android/support/v7/widget/RecyclerView$SmoothScroller$ScrollVectorProvider.class
 com/facebook/stetho/inspector/protocol/module/DOM$DiscardSearchResultsRequest.class
@@ -1173,7 +1191,6 @@ android/support/v7/widget/RecyclerView$ItemAnimatorRestoreListener.class
 com/facebook/stetho/inspector/protocol/module/Page$ResourceType.class
 android/support/design/widget/AppBarLayout$OnOffsetChangedListener.class
 com/afollestad/materialdialogs/DialogBase.class
-cn/connxun/morui/data/local/TaskStroge$$Lambda$6.class
 android/support/v7/view/ActionMode.class
 flipboard/bottomsheet/commons/R$dimen.class
 dagger/Reusable.class
@@ -1264,6 +1281,7 @@ com/facebook/stetho/inspector/protocol/module/CSS$GetMatchedStylesForNodeRequest
 cn/connxun/morui/ui/task/taskinspect/TaskInspectAdapter$ViewHolder$$Lambda$1.class
 android/support/v4/view/accessibility/AccessibilityRecordCompat.class
 com/bumptech/glide/util/Util.class
+cn/connxun/morui/ui/task/taskchange/TaskChangeDetailActivity$$Lambda$1.class
 android/support/design/widget/TabLayout$PagerAdapterObserver.class
 com/yalantis/ucrop/R$dimen.class
 io/reactivex/processors/BehaviorProcessor.class
@@ -1297,6 +1315,7 @@ android/support/annotation/Size.class
 android/support/v7/app/ActionBar$DisplayOptions.class
 android/support/v4/app/NotificationCompat$CarExtender.class
 okio/package-info.class
+cn/connxun/morui/ui/task/taskchange/TaskChangeDetailActivity$$Lambda$2.class
 com/yalantis/ucrop/UCropActivity$7.class
 android/support/v4/view/accessibility/AccessibilityNodeInfoCompat.class
 android/support/v4/media/RatingCompat.class
@@ -1325,6 +1344,7 @@ okhttp3/RequestBody$2.class
 android/support/annotation/WorkerThread.class
 android/support/design/widget/BottomSheetBehavior$1.class
 android/support/multidex/ZipUtil.class
+cn/connxun/morui/ui/task/taskchange/TaskChangeDetailActivity$$Lambda$3.class
 android/support/annotation/FractionRes.class
 android/support/annotation/PluralsRes.class
 okhttp3/internal/cache/CacheStrategy.class
@@ -1378,6 +1398,7 @@ com/facebook/stetho/inspector/protocol/module/DOM$PerformSearchResponse.class
 io/reactivex/subjects/CompletableSubject.class
 dagger/MapKey.class
 android/support/design/widget/ViewGroupUtils.class
+cn/connxun/morui/ui/task/taskchange/TaskChangeAdapter$ViewHolder$$Lambda$1.class
 android/support/v7/view/menu/MenuPopup.class
 com/taobao/sophix/a/c.class
 android/support/v4/media/MediaBrowserCompat$ItemReceiver.class

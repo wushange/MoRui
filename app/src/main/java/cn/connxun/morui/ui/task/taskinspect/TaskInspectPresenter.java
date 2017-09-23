@@ -1,9 +1,8 @@
 package cn.connxun.morui.ui.task.taskinspect;
 
-import android.os.Handler;
-
 import com.blankj.utilcode.util.ToastUtils;
 import com.facebook.stetho.common.LogUtil;
+import com.orhanobut.logger.Logger;
 
 import java.util.HashMap;
 import java.util.List;
@@ -40,7 +39,7 @@ public class TaskInspectPresenter extends BasePresenter<TaskInspectContract.Task
     }
 
     @Override
-    public void confirmTask(Task task,int pos) {
+    public void confirmTask(Task task, int pos) {
         Map<String, String> jsonObject = new HashMap<>();
         jsonObject.put("id", task.getId());
         api.confirmTask(jsonObject).subscribe(new Observer<Object>() {
@@ -53,7 +52,7 @@ public class TaskInspectPresenter extends BasePresenter<TaskInspectContract.Task
             public void onNext(@NonNull Object o) {
                 LogUtil.e("-next-->>" + o.toString());
                 task.setStatus(TASK_STATUS.ALLOT_CONFIRMED.value());
-                mView.confirmTaskSuccess(task,pos);
+                mView.confirmTaskSuccess(task, pos);
                 mView.endLoading();
             }
 
@@ -71,7 +70,7 @@ public class TaskInspectPresenter extends BasePresenter<TaskInspectContract.Task
     }
 
     @Override
-    public void gobackTask(Task task,int pos) {
+    public void gobackTask(Task task, int pos) {
         Map<String, String> jsonObject = new HashMap<>();
         jsonObject.put("id", task.getId());
         api.gobackTask(jsonObject).subscribe(new Observer<Object>() {
@@ -103,32 +102,38 @@ public class TaskInspectPresenter extends BasePresenter<TaskInspectContract.Task
 
     @Override
     public void syncTaskList() {
-        List<Task> as = stroge.getAllTask_NoSyncList();
-        mView.showLoadingView("上传任务中...");
-        api.uploadTask(as).subscribe(new Observer<Object>() {
-            @Override
-            public void onSubscribe(@NonNull Disposable d) {
-                mDisposable.add(d);
-            }
+        stroge.getAllTask_NoSyncList().subscribe(tasks -> {
+            Logger.e("--" + tasks.toString());
+            mView.showLoadingView("上传任务中...");
+            api.uploadTask(tasks).subscribe(new Observer<Object>() {
+                @Override
+                public void onSubscribe(@NonNull Disposable d) {
+                    mDisposable.add(d);
+                }
 
-            @Override
-            public void onNext(@NonNull Object o) {
-                ToastUtils.showShort("上传成功");
-                stroge.deleteTasks(stroge.getAllTask_NoSyncList());
-            }
+                @Override
+                public void onNext(@NonNull Object o) {
+                    ToastUtils.showShort("上传成功");
+                    stroge.deleteTasks(tasks);
+                }
 
-            @Override
-            public void onError(@NonNull Throwable e) {
-                mView.onError(e.getMessage());
-                mView.endLoading();
-            }
+                @Override
+                public void onError(@NonNull Throwable e) {
+                    mView.onError(e.getMessage());
+                    mView.endLoading();
+                }
 
-            @Override
-            public void onComplete() {
-                mView.endLoading();
-                downloadTasks();
-            }
+                @Override
+                public void onComplete() {
+                    mView.endLoading();
+                    downloadTasks();
+                }
+            });
+        }, throwable -> {
+
         });
+
+
     }
 
     @Override
@@ -148,7 +153,7 @@ public class TaskInspectPresenter extends BasePresenter<TaskInspectContract.Task
             public void onNext(@NonNull List<Task> tasks) {
                 ToastUtils.showShort("下载成功");
                 stroge.saveAllTask(tasks);
-                new Handler().postDelayed(() -> mView.showList(stroge.getAllTask_OffLine()),500);
+                stroge.getAllTask_OffLine().subscribe(tasks1 -> mView.showList(tasks1), throwable -> mView.onError(throwable.getMessage()));
             }
 
             @Override
@@ -159,13 +164,13 @@ public class TaskInspectPresenter extends BasePresenter<TaskInspectContract.Task
 
             @Override
             public void onComplete() {
-                mView.endLoading();
             }
         });
     }
 
     @Override
     public void getOfflineTaskList() {
-        mView.showOfflineList(stroge.getAllTask_OffLine());
+        stroge.getAllTask_OffLine().subscribe(tasks -> mView.showOfflineList(tasks), throwable -> mView.onError(throwable.getMessage()));
+
     }
 }

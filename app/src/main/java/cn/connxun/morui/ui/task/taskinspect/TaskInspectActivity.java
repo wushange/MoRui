@@ -119,6 +119,9 @@ public class TaskInspectActivity extends BaseSwipeBackActivity implements TaskIn
         });
 
         if (!NetworkUtils.isConnected()) {
+            mOperation.dissMissDialog();
+            erlTaskIns.setVisibility(View.VISIBLE);
+            btnSync.setVisibility(View.GONE);
             presenter.getOfflineTaskList();
         }
 

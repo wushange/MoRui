@@ -4,7 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.text.Editable;
@@ -20,12 +20,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.bumptech.glide.Glide;
 import com.orhanobut.logger.Logger;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import org.greenrobot.eventbus.EventBus;
 
-import java.io.File;
+import java.io.ByteArrayOutputStream;
 
 import javax.inject.Inject;
 
@@ -249,9 +250,15 @@ public class TaskStepActivity extends BaseSwipeBackActivity implements TaskStepC
             Toast("采集照片成功！");
             btnReTakephotp.setVisibility(View.VISIBLE);
             RxUtil.runOnIoThreadTask().observeOn(AndroidSchedulers.mainThread()).subscribe(o -> {
-                ivTaksImg.setImageURI(Uri.fromFile(new File(imgPath)));
+                Bitmap                bitmap = ImageUtils.getSmallBitmap(imgPath);
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 40, baos);
+                byte[] bytes = baos.toByteArray();
+                Glide.with(getContext())
+                        .load(bytes)
+                        .into(ivTaksImg);
                 mTask.setFilePath(ImageUtils.bitmapToString(imgPath));
-            });
+            }, throwable -> Toast(throwable.getMessage()));
             RxGalleryFinalApi.openZKCameraForResult(this, strings -> Logger.e(String.format("拍照成功,图片存储路径:%s", strings[0])));
 
         } else {

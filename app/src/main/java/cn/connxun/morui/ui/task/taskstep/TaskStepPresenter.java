@@ -39,11 +39,11 @@ public class TaskStepPresenter extends BasePresenter<TaskStepContract.TaskStepVi
     List<TaskSub> allotTaskSubListBeen = new ArrayList<>();
 
     @Inject
-    public TaskStepPresenter(TaskSubDao subListBeanDao, TaskDao allotTaskDao) {
+    public TaskStepPresenter(UserStorge userStorge, TaskSubDao subListBeanDao, TaskDao allotTaskDao) {
+        this.userStorge = userStorge;
         this.subListBeanDao = subListBeanDao;
         this.allotTaskDao = allotTaskDao;
     }
-
 
     @Override
     public void checkTask() {
@@ -111,8 +111,8 @@ public class TaskStepPresenter extends BasePresenter<TaskStepContract.TaskStepVi
         if (allotTaskSubListBeen != null && allotTaskSubListBeen.size() > 0) {
             TaskSub mTask = allotTaskSubListBeen.get(mView.getIndex());
             mTask.setCheckUserName(userStorge.getUser().getRealname());
-            mTask.setCheckDate(TimeUtils.date2String(new Date(),new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())));
-            mView.renderTaskView(allotTaskSubListBeen.size() + "",mTask);
+            mTask.setCheckDate(TimeUtils.date2String(new Date(), new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())));
+            mView.renderTaskView(allotTaskSubListBeen.size() + "", mTask);
         } else {
             mView.onError("未匹配到任务");
         }
@@ -176,38 +176,32 @@ public class TaskStepPresenter extends BasePresenter<TaskStepContract.TaskStepVi
                         + "\n--Origen--" + mTask.getOrangeWarning()
                         + "\n--MinValue--" + mTask.getMinValue()
                         + "\n--MaxValue--" + mTask.getBigValue());
-        if (!StringUtils.isEmpty(mTask.getRedWarning())) {
-            if (rangeInDefined(input, Double.parseDouble(mTask.getBigValue()), Double.parseDouble(mTask.getRedWarning()))) {
-                mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
-                LogUtils.e("红"); //红 max-red
-            }
-        }
         if (!StringUtils.isEmpty(mTask.getRedWarning()) && !StringUtils.isEmpty(mTask.getOrangeWarning())) {
             if (rangeInDefined(input, Double.parseDouble(mTask.getRedWarning()), Double.parseDouble(mTask.getOrangeWarning()))) {
                 mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
                 LogUtils.e("橙"); //橙 red-org
+                return;
             }
         }
         if (!StringUtils.isEmpty(mTask.getOrangeWarning()) && !StringUtils.isEmpty(mTask.getYellowWarning())) {
             if (rangeInDefined(input, Double.parseDouble(mTask.getOrangeWarning()), Double.parseDouble(mTask.getYellowWarning()))) {
                 mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
                 LogUtils.e("黄"); //黄 org-yello
+                return;
             }
-        }
-        if (!StringUtils.isEmpty(mTask.getStandardValue()) && !StringUtils.isEmpty(mTask.getMinValue())) {
-            if (rangeInDefined(input, Double.parseDouble(mTask.getStandardValue()), Double.parseDouble(mTask.getMinValue()))) {
-                LogUtils.e("标准绿色"); //   yello-min
-                mTask.setCheckResult(TASKSUB_CHECK_RESULT.NORMAL.value() + "");
-            }
+
         }
         if (input < Double.parseDouble(mTask.getMinValue())) {
             LogUtils.e("小于最小值"); //   yello-min
             mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
+            return;
         }
         if (input > Double.parseDouble(mTask.getBigValue())) {
             LogUtils.e("大于最大值"); //   yello-min
             mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
+            return;
         }
+        mTask.setCheckResult(TASKSUB_CHECK_RESULT.NORMAL.value() + "");
     }
 
     private boolean rangeInDefined(double current, double max, double min) {

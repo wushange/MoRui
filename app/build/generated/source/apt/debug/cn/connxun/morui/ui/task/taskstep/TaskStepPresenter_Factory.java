@@ -1,5 +1,6 @@
 package cn.connxun.morui.ui.task.taskstep;
 
+import cn.connxun.morui.data.local.UserStorge;
 import cn.connxun.morui.db.TaskDao;
 import cn.connxun.morui.db.TaskSubDao;
 import dagger.MembersInjector;
@@ -15,16 +16,21 @@ import javax.inject.Provider;
 public final class TaskStepPresenter_Factory implements Factory<TaskStepPresenter> {
   private final MembersInjector<TaskStepPresenter> taskStepPresenterMembersInjector;
 
+  private final Provider<UserStorge> userStorgeProvider;
+
   private final Provider<TaskSubDao> subListBeanDaoProvider;
 
   private final Provider<TaskDao> allotTaskDaoProvider;
 
   public TaskStepPresenter_Factory(
       MembersInjector<TaskStepPresenter> taskStepPresenterMembersInjector,
+      Provider<UserStorge> userStorgeProvider,
       Provider<TaskSubDao> subListBeanDaoProvider,
       Provider<TaskDao> allotTaskDaoProvider) {
     assert taskStepPresenterMembersInjector != null;
     this.taskStepPresenterMembersInjector = taskStepPresenterMembersInjector;
+    assert userStorgeProvider != null;
+    this.userStorgeProvider = userStorgeProvider;
     assert subListBeanDaoProvider != null;
     this.subListBeanDaoProvider = subListBeanDaoProvider;
     assert allotTaskDaoProvider != null;
@@ -35,14 +41,19 @@ public final class TaskStepPresenter_Factory implements Factory<TaskStepPresente
   public TaskStepPresenter get() {
     return MembersInjectors.injectMembers(
         taskStepPresenterMembersInjector,
-        new TaskStepPresenter(subListBeanDaoProvider.get(), allotTaskDaoProvider.get()));
+        new TaskStepPresenter(
+            userStorgeProvider.get(), subListBeanDaoProvider.get(), allotTaskDaoProvider.get()));
   }
 
   public static Factory<TaskStepPresenter> create(
       MembersInjector<TaskStepPresenter> taskStepPresenterMembersInjector,
+      Provider<UserStorge> userStorgeProvider,
       Provider<TaskSubDao> subListBeanDaoProvider,
       Provider<TaskDao> allotTaskDaoProvider) {
     return new TaskStepPresenter_Factory(
-        taskStepPresenterMembersInjector, subListBeanDaoProvider, allotTaskDaoProvider);
+        taskStepPresenterMembersInjector,
+        userStorgeProvider,
+        subListBeanDaoProvider,
+        allotTaskDaoProvider);
   }
 }

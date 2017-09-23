@@ -385,6 +385,7 @@ public final class DaggerActivityComponent implements ActivityComponent {
         DoubleCheck.provider(
             TaskStepPresenter_Factory.create(
                 MembersInjectors.<TaskStepPresenter>noOp(),
+                getUserStorgeProvider,
                 getTaskSubDaoProvider,
                 getTaskDaoProvider));
 
