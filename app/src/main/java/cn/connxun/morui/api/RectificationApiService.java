@@ -5,9 +5,9 @@ import java.util.List;
 import cn.connxun.morui.entity.InspectionRectification;
 import io.reactivex.Observable;
 import retrofit2.Response;
-import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -28,7 +28,7 @@ public interface RectificationApiService {
     Observable<Response<String>> getDetail(@Query("id") String id);
 
 
-    @Headers("Content-Type:application/json")
+    @FormUrlEncoded()
     @POST("rectification/updateRectification.do")
-    Observable<Response<String>> changeTask(@Body Object o);
+    Observable<Response<String>> changeTask(@Field("id") String id, @Field("rectificationImg") String rectificationImg);
 }

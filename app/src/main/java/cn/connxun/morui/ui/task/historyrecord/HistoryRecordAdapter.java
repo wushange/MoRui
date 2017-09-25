@@ -11,12 +11,16 @@ import android.widget.TextView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.connxun.morui.R;
+import cn.connxun.morui.constants.enums.TASKSUB_CHECK_RESULT;
 import cn.connxun.morui.entity.Task;
+import cn.connxun.morui.entity.TaskSub;
 
 /**
  * Created by wushange on 2017/7/19.
@@ -71,23 +75,27 @@ public class HistoryRecordAdapter extends RecyclerArrayAdapter<Task> {
         public void setData(Task data) {
             super.setData(data);
             tvItemTaskName.setText(data.getName());
-            if (getAdapterPosition() / 2 == 0) {
+
+            int sucount = 0;
+            List<TaskSub> taskSubList= data.getTaskSubList();
+            for (TaskSub sub:taskSubList) {
+                if(sub.getCheckResult().equals(""+ TASKSUB_CHECK_RESULT.NORMAL.value())){
+                    sucount++;
+                }
+            }
+            if(sucount==taskSubList.size()){
                 tvItemTaskStatus.setText("全部正常");
                 tvItemTaskStatus.setTextColor(Color.GREEN);
-            } else {
-                tvItemTaskStatus.setText("异常点数:" + getAdapterPosition());
+            }else{
+                tvItemTaskStatus.setText("异常点数:" + (taskSubList.size()-sucount));
                 tvItemTaskStatus.setTextColor(Color.RED);
             }
+           
             tvItemTaskStartdate.setText(data.getStartDate());
             tvItemTaskEndtime.setText(data.getEndDate());
             tvItemTaskShenfen.setText(data.getCheckUserName());
             tvItemTaskUpdateTime.setText(data.getUploadDate());
-            btnTaskoper.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onItemButtonClickListener.OnItemButtonClickListener(v, data);
-                }
-            });
+            btnTaskoper.setOnClickListener(v -> onItemButtonClickListener.OnItemButtonClickListener(v, data));
         }
     }
 

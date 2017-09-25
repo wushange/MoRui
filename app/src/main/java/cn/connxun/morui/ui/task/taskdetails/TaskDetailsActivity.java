@@ -15,6 +15,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import cn.connxun.morui.R;
+import cn.connxun.morui.entity.Task;
 import cn.connxun.morui.entity.TaskSub;
 import cn.connxun.morui.ui.base.BaseSwipeBackActivity;
 
@@ -24,12 +25,14 @@ import cn.connxun.morui.ui.base.BaseSwipeBackActivity;
  */
 
 public class TaskDetailsActivity extends BaseSwipeBackActivity implements TaskDetailsContract.TaskDetailsView {
-    private static final String TASK_ID_DETAIL = "TASK_ID_DETAIL";
-    public static void callMe(Context context, String taskId) {
+    private static final String TASK_ID_DETAIL_BAEN = "TASK_ID_DETAIL";
+
+    public static void callMe(Context context, Task task) {
         Intent intent = new Intent(context, TaskDetailsActivity.class);
-        intent.putExtra(TASK_ID_DETAIL, taskId);
+        intent.putExtra(TASK_ID_DETAIL_BAEN, task);
         context.startActivity(intent);
     }
+
     @BindView(R.id.erl_task_details)
     EasyRecyclerView     recyclerView;
     @Inject
@@ -37,7 +40,8 @@ public class TaskDetailsActivity extends BaseSwipeBackActivity implements TaskDe
     @Inject
     TaskDetailsAdapter   adapter;
 
-    String taskId;
+    Task mTask;
+
     @Override
     public int bindLayout() {
         return R.layout.activity_task_details;
@@ -45,7 +49,7 @@ public class TaskDetailsActivity extends BaseSwipeBackActivity implements TaskDe
 
     @Override
     public void initParms(Bundle parms) {
-        taskId = parms.getString(TASK_ID_DETAIL);
+        mTask = (Task) parms.get(TASK_ID_DETAIL_BAEN);
 
     }
 
@@ -83,18 +87,24 @@ public class TaskDetailsActivity extends BaseSwipeBackActivity implements TaskDe
 
     @Override
     public String taskId() {
-        return taskId;
+        return mTask.getId();
     }
 
     @Override
     public void showList(List<TaskSub> list) {
-        adapter.addAll(list);
+        if (list.size() <= 0) {
+            adapter.addAll(mTask.getTaskSubList());
+        } else {
+            adapter.addAll(list);
+        }
 
     }
+
     @Override
     public void onError(String error) {
         Toast(error);
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

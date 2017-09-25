@@ -15,6 +15,7 @@ import butterknife.BindView;
 import cn.connxun.morui.R;
 import cn.connxun.morui.entity.Task;
 import cn.connxun.morui.ui.base.BaseSwipeBackActivity;
+import cn.connxun.morui.ui.task.taskdetails.TaskDetailsActivity;
 
 /**
  * 、、历史记录
@@ -45,10 +46,7 @@ public class HistoryRecordActivity extends BaseSwipeBackActivity implements Hist
         presenter.getTaskList();
         erlHisRecord.setLayoutManager(new LinearLayoutManager(this ));
         erlHisRecord.setAdapterWithProgress(adapter);
-        adapter.setOnItemButtonClickListener((v, da) -> {
-            Toast("敬请期待");
-//            TaskDetailsActivity.callMe(getContext(),da.getId());
-        });
+        adapter.setOnItemClickListener(position -> TaskDetailsActivity.callMe(getContext(),adapter.getItem(position)));
     }
 
     @Override

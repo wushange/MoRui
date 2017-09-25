@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.connxun.morui.R;
+import cn.connxun.morui.constants.enums.TASKSUB_CHECK_RESULT;
 import cn.connxun.morui.entity.TaskSub;
 
 /**
@@ -55,11 +56,11 @@ public class TaskDetailsAdapter extends RecyclerArrayAdapter<TaskSub> {
                 }
             }else{
                 if (data.getCheckResult() != null) {
-                    tvItemTaskDtParams.setText(data.getCheckResult().equals("0") ? "正常" : "异常");
+                    tvItemTaskDtParams.setText(data.getCheckResult().equals(TASKSUB_CHECK_RESULT.NORMAL.value()+"") ? "正常" : "异常");
                 }
             }
             if (data.getCheckResult() != null) {
-            if (data.getCheckResult().equals("0")) {
+            if (data.getCheckResult().equals(TASKSUB_CHECK_RESULT.NORMAL.value()+"")) {
                 tvItemTaskDtResult.setText("正常");
                 tvItemTaskDtResult.setTextColor(getContext().getResources().getColor(android.R.color.holo_green_light));
             } else {

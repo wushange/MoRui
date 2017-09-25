@@ -155,7 +155,6 @@ com/afollestad/materialdialogs/color/CircleView.class
 android/support/v7/app/AppCompatCallback.class
 android/support/v4/app/NotificationCompatBase$Action.class
 android/support/v7/widget/RecyclerView$Recycler.class
-cn/connxun/morui/ui/task/taskinspect/TaskInspectActivity$$Lambda$5.class
 org/greenrobot/greendao/annotation/Unique.class
 butterknife/BindString.class
 android/support/media/ExifInterface$ExifTag.class
@@ -184,6 +183,7 @@ android/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi21.class
 android/support/v4/app/ActivityCompat$OnRequestPermissionsResultCallback.class
 android/support/v4/app/NotificationCompatApi24.class
 cn/connxun/morui/di/module/ActivityModule.class
+cn/connxun/morui/ui/task/taskchange/TaskChangePresenter$$Lambda$5.class
 android/support/v4/app/BaseFragmentActivityJB.class
 com/bumptech/glide/GlideBuilder.class
 android/support/v4/view/ViewPager$ItemInfo.class
@@ -408,6 +408,7 @@ okhttp3/HttpUrl.class
 android/support/v7/widget/SimpleItemAnimator.class
 cn/connxun/morui/ui/home/HomeFragment$$Lambda$1.class
 android/support/design/widget/BaseTransientBottomBar$1.class
+cn/connxun/morui/ui/task/taskinspect/TaskInspectActivity$$Lambda$2.class
 android/support/v4/util/Pools$Pool.class
 android/support/annotation/BoolRes.class
 android/support/v4/media/MediaMetadataCompat.class
@@ -443,7 +444,6 @@ com/afollestad/materialdialogs/commons/R$drawable.class
 cn/connxun/morui/ui/task/taskstep/TaskStepAdapter.class
 com/afollestad/materialdialogs/color/ColorChooserDialog.class
 android/support/v7/app/AlertDialog$Builder.class
-cn/connxun/morui/ui/task/taskinspect/TaskInspectActivity$$Lambda$4.class
 okhttp3/ConnectionSpec.class
 com/facebook/stetho/inspector/protocol/module/CSS$PseudoIdMatches.class
 android/support/v4/media/TransportController.class
@@ -770,6 +770,7 @@ com/afollestad/materialdialogs/color/ColorChooserDialog$4.class
 android/support/v4/widget/MaterialProgressDrawable.class
 android/support/design/R$attr.class
 com/facebook/stetho/common/android/FragmentAccessor.class
+cn/connxun/morui/ui/task/taskinspect/TaskInspectActivity$$Lambda$3.class
 com/tencent/tinker/loader/app/ApplicationLike.class
 android/support/v7/widget/ChildHelper$Callback.class
 com/yalantis/ucrop/UCropActivity$GestureTypes.class
@@ -779,6 +780,7 @@ android/support/v7/app/ActionBarDrawerToggle$Delegate.class
 android/support/v4/view/ViewCompatLollipop$OnApplyWindowInsetsListenerBridge.class
 android/support/v7/widget/LinearLayoutCompat$OrientationMode.class
 android/support/v7/widget/RecyclerView$LayoutParams.class
+cn/connxun/morui/ui/task/historyrecord/HistoryRecordAdapter$ViewHolder$$Lambda$1.class
 okhttp3/Handshake.class
 retrofit2/http/DELETE.class
 io/reactivex/subjects/MaybeSubject.class
@@ -1318,7 +1320,6 @@ android/support/annotation/Size.class
 android/support/v7/app/ActionBar$DisplayOptions.class
 android/support/v4/app/NotificationCompat$CarExtender.class
 okio/package-info.class
-cn/connxun/morui/ui/task/taskchange/TaskChangeDetailActivity$$Lambda$2.class
 com/yalantis/ucrop/UCropActivity$7.class
 android/support/v4/view/accessibility/AccessibilityNodeInfoCompat.class
 android/support/v4/media/RatingCompat.class
@@ -1340,6 +1341,7 @@ io/reactivex/annotations/CheckReturnValue.class
 butterknife/OnLongClick.class
 android/support/v4/app/NotificationCompat$InboxStyle.class
 cn/connxun/morui/ui/task/taskinspect/TaskInspectAdapter$ViewHolder$$Lambda$3.class
+cn/connxun/morui/ui/task/taskchange/TaskChangeDetailActivity$$Lambda$6.class
 android/support/v4/media/session/PlaybackStateCompat$CustomAction.class
 android/support/v4/view/ViewPager$ViewPositionComparator.class
 com/taobao/sophix/a/f.class
@@ -1347,7 +1349,6 @@ okhttp3/RequestBody$2.class
 android/support/annotation/WorkerThread.class
 android/support/design/widget/BottomSheetBehavior$1.class
 android/support/multidex/ZipUtil.class
-cn/connxun/morui/ui/task/taskchange/TaskChangeDetailActivity$$Lambda$3.class
 android/support/annotation/FractionRes.class
 android/support/annotation/PluralsRes.class
 okhttp3/internal/cache/CacheStrategy.class
@@ -1397,6 +1398,7 @@ android/support/v7/widget/RecyclerView$ItemAnimator$ItemAnimatorFinishedListener
 cn/connxun/morui/ui/task/taskdetails/TaskDetailsAdapter.class
 android/support/v4/media/session/MediaSessionCompat$OnActiveChangeListener.class
 cn/connxun/morui/ui/task/taskinspect/TaskInspectAdapter$ViewHolder$$Lambda$2.class
+cn/connxun/morui/ui/task/taskchange/TaskChangeDetailActivity$$Lambda$5.class
 com/facebook/stetho/inspector/protocol/module/DOM$PerformSearchResponse.class
 io/reactivex/subjects/CompletableSubject.class
 dagger/MapKey.class

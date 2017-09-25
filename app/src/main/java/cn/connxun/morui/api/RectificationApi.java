@@ -16,7 +16,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.http.Body;
+import retrofit2.http.Field;
 import retrofit2.http.Query;
 
 /**
@@ -58,7 +58,8 @@ public class RectificationApi implements RectificationApiService {
     }
 
     @Override
-    public Observable<Response<String>> changeTask(@Body Object o) {
-        return service.changeTask(o).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    public Observable<Response<String>> changeTask(@Field("id") String id, @Field("rectificationImg") String rectificationImg) {
+        return  service.changeTask(id,rectificationImg).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
+
 }

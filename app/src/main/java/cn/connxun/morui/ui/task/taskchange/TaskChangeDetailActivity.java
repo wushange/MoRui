@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.StringUtils;
+import com.bumptech.glide.Glide;
 import com.orhanobut.logger.Logger;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
@@ -26,6 +27,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.connxun.morui.R;
 import cn.connxun.morui.components.rxjava.RxUtil;
+import cn.connxun.morui.constants.Constants;
 import cn.connxun.morui.entity.InspectionRectification;
 import cn.connxun.morui.ui.base.BaseActivity;
 import cn.connxun.morui.ui.base.BaseEvents;
@@ -91,10 +93,10 @@ public class TaskChangeDetailActivity extends BaseActivity implements TaskChange
             btnTaskcTakephoto.setVisibility(View.GONE);
         }
         if (!StringUtils.isEmpty(mTask.getAbnormalityImg())) {
-            ivTaskcAbimg.setImageBitmap(ImageUtils.stringtoBitmap(mTask.getAbnormalityImg()));
+            Glide.with(getContext()).load(Constants.HOST+"/upload/"+mTask.getAbnormalityImg()).into(ivTaskcAbimg);
         }
         if (!StringUtils.isEmpty(mTask.getRectificationImg())) {
-            ivTaskcImg.setImageBitmap(ImageUtils.stringtoBitmap(mTask.getRectificationImg()));
+            Glide.with(getContext()).load(Constants.HOST+"/upload/"+mTask.getRectificationImg()).into(ivTaskcImg);
         }
         btnTaskcTakephoto.setOnClickListener(v -> takePhoto());
     }

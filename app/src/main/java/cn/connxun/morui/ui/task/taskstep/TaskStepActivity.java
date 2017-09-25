@@ -4,7 +4,6 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.text.Editable;
@@ -21,13 +20,10 @@ import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.blankj.utilcode.util.StringUtils;
-import com.bumptech.glide.Glide;
 import com.orhanobut.logger.Logger;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import org.greenrobot.eventbus.EventBus;
-
-import java.io.ByteArrayOutputStream;
 
 import javax.inject.Inject;
 
@@ -251,14 +247,9 @@ public class TaskStepActivity extends BaseSwipeBackActivity implements TaskStepC
             Toast("采集照片成功！");
             btnReTakephotp.setVisibility(View.VISIBLE);
             RxUtil.runOnIoThreadTask().observeOn(AndroidSchedulers.mainThread()).subscribe(o -> {
-                Bitmap                bitmap = ImageUtils.getSmallBitmap(imgPath);
-                ByteArrayOutputStream baos   = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 40, baos);
-                byte[] bytes = baos.toByteArray();
-                Glide.with(getContext())
-                        .load(bytes)
-                        .into(ivTaksImg);
-                mTask.setFilePath(ImageUtils.bitmapToString(imgPath));
+                String base64Path = ImageUtils.bitmapToString(imgPath);
+                mTask.setFilePath(base64Path);
+                ivTaksImg.setImageBitmap(ImageUtils.stringtoBitmap(base64Path));
             }, throwable -> Toast(throwable.getMessage()));
             RxGalleryFinalApi.openZKCameraForResult(this, strings -> Logger.e(String.format("拍照成功,图片存储路径:%s", strings[0])));
 
@@ -304,21 +295,20 @@ public class TaskStepActivity extends BaseSwipeBackActivity implements TaskStepC
         if (!StringUtils.isEmpty(mTask.getCheckResultValue())) {
             etTagResult.setText(mTask.getCheckResultValue());
             etTagResult.setSelection(mTask.getCheckResultValue().length());
+        }else{
+            etTagResult.setText("");
         }
         etTagResult.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                Logger.e("--beforeTextChanged-");
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Logger.e("--onTextChanged-");
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                Logger.e("--afterTextChanged-");
                 mTask.setCheckResultValue(s.toString());
             }
         });

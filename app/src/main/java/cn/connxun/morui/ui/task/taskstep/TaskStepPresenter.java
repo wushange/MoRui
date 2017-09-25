@@ -5,6 +5,8 @@ import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.TimeUtils;
 import com.blankj.utilcode.util.ToastUtils;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,6 +24,7 @@ import cn.connxun.morui.db.TaskSubDao;
 import cn.connxun.morui.di.PerActivity;
 import cn.connxun.morui.entity.Task;
 import cn.connxun.morui.entity.TaskSub;
+import cn.connxun.morui.ui.base.BaseEvents;
 import cn.connxun.morui.ui.base.BasePresenter;
 
 /**
@@ -89,6 +92,7 @@ public class TaskStepPresenter extends BasePresenter<TaskStepContract.TaskStepVi
         Task allotTask = allotTaskDao.queryBuilder().where(TaskDao.Properties.Id.eq(mView.getThisTaskId())).unique();
         allotTaskDao.update(allotTask);
         mView.completeTask(allotTask);
+        EventBus.getDefault().postSticky(BaseEvents.CommonEvent.UPDATE_LIST);
     }
 
     @Override
@@ -108,8 +112,6 @@ public class TaskStepPresenter extends BasePresenter<TaskStepContract.TaskStepVi
         }
         if (allotTaskSubListBeen != null && allotTaskSubListBeen.size() > 0) {
             TaskSub mTask = allotTaskSubListBeen.get(mView.getIndex());
-            mTask.setCheckUserName(userStorge.getUser().getRealname());
-            mTask.setCheckDate(TimeUtils.date2String(new Date(), new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())));
             mView.renderTaskView(allotTaskSubListBeen.size() + "", mTask);
         } else {
             mView.onError("未匹配到任务");
@@ -121,10 +123,9 @@ public class TaskStepPresenter extends BasePresenter<TaskStepContract.TaskStepVi
     public void save() {
         TaskSub currTask = mView.getThisTask();
         mView.indexAdd();
-        if (mView.getIsSubJudge() != TASK_ISSUBJUDGE.ISSUBJUDGE.value()) {
-            currTask.setCheckResultValue("" + mView.getEditText());
-        }
         currTask.setCheckStatus(TASKSUB_CHECK_STATUS.CHECKDONE.value());
+        currTask.setCheckUserName(userStorge.getUser().getRealname());
+        currTask.setCheckDate(TimeUtils.date2String(new Date(), new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())));
         subListBeanDao.update(currTask);
         int successCount = 0;
         for (TaskSub bean : allotTaskSubListBeen) {
@@ -176,6 +177,7 @@ public class TaskStepPresenter extends BasePresenter<TaskStepContract.TaskStepVi
                         + "\n--Origen--" + mTask.getOrangeWarning()
                         + "\n--MinValue--" + mTask.getMinValue()
                         + "\n--MaxValue--" + mTask.getBigValue());
+        
         if (!StringUtils.isEmpty(mTask.getRedWarning()) && !StringUtils.isEmpty(mTask.getOrangeWarning())) {
             if (rangeInDefined(input, Double.parseDouble(mTask.getRedWarning()), Double.parseDouble(mTask.getOrangeWarning()))) {
                 mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
@@ -189,18 +191,31 @@ public class TaskStepPresenter extends BasePresenter<TaskStepContract.TaskStepVi
                 LogUtils.e("黄"); //黄 org-yello
                 return;
             }
-
         }
-        if (input < Double.parseDouble(mTask.getMinValue())) {
-            LogUtils.e("小于最小值"); //   yello-min
-            mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
-            return;
+        if( Double.parseDouble(mTask.getBigValue())- Double.parseDouble(mTask.getMinValue())>0){
+            if (input < Double.parseDouble(mTask.getMinValue())) {
+                LogUtils.e("小于最小值"); //   yello-min
+                mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
+                return;
+            }
+            if (input > Double.parseDouble(mTask.getBigValue())) {
+                LogUtils.e("大于最大值"); //   yello-min
+                mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
+                return;
+            }
+        }else{
+            if (input > Double.parseDouble(mTask.getMinValue())) {
+                LogUtils.e("大于最小值"); //   yello-min
+                mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
+                return;
+            }
+            if (input < Double.parseDouble(mTask.getBigValue())) {
+                LogUtils.e("小于最大值"); //   yello-min
+                mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
+                return;
+            }
         }
-        if (input > Double.parseDouble(mTask.getBigValue())) {
-            LogUtils.e("大于最大值"); //   yello-min
-            mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
-            return;
-        }
+      
         mTask.setCheckResult(TASKSUB_CHECK_RESULT.NORMAL.value() + "");
     }
 

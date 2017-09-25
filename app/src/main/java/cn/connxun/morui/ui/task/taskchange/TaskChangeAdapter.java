@@ -1,6 +1,7 @@
 package cn.connxun.morui.ui.task.taskchange;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -55,7 +56,7 @@ public class TaskChangeAdapter extends RecyclerArrayAdapter<InspectionRectificat
         @BindView(R.id.tv_item_task_synctime)
         TextView tvItemTaskSynctime;
         @BindView(R.id.btn_taskoper)
-        Button btnTaskoper;
+        Button   btnTaskoper;
 
         public ViewHolder(ViewGroup group) {
             super(group, R.layout.item_task_inspect);
@@ -65,22 +66,24 @@ public class TaskChangeAdapter extends RecyclerArrayAdapter<InspectionRectificat
         @Override
         public void setData(InspectionRectification data) {
             super.setData(data);
-            tvItemTaskName.setText("任务:"+data.getPointName());
-            tvItemTaskInstime.setText("检查点:"+data.getName());
-            tvItemTaskSynctime.setText("专项资金:"+data.getSpecialFunds());
-            if(0==data.getStatus()){
+            tvItemTaskName.setText("任务:" + data.getPointName());
+            tvItemTaskInstime.setText("检查点:" + data.getName());
+            tvItemTaskSynctime.setText("专项资金:" + data.getSpecialFunds());
+            if (0 == data.getStatus()) {
                 tvItemTaskStatus.setText("未整改");
-            }else{
+                tvItemTaskStatus.setTextColor(getContext().getResources().getColor(R.color.nocheck));
+            } else {
+                tvItemTaskStatus.setTextColor(Color.GREEN);
                 tvItemTaskStatus.setText("整改完成");
             }
             btnTaskoper.setText("查看详情");
-            btnTaskoper.setOnClickListener(v -> onItemButtonClickListener.OnItemButtonClickListener(itemView,data));
-            
+            btnTaskoper.setOnClickListener(v -> onItemButtonClickListener.OnItemButtonClickListener(itemView, data));
+
         }
     }
 
 
-    interface OnItemButtonClickListener{
+    interface OnItemButtonClickListener {
         void OnItemButtonClickListener(View v, InspectionRectification da);
     }
 }

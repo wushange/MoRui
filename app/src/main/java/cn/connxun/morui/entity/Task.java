@@ -6,6 +6,7 @@ import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.ToMany;
 
+import java.io.Serializable;
 import java.util.List;
 
 import cn.connxun.morui.db.DaoSession;
@@ -16,8 +17,9 @@ import cn.connxun.morui.db.TaskSubDao;
  * Created by wushange on 2017/8/19.
  */
 @Entity
-public class Task {
+public class Task implements Serializable{
 
+    private static final long serialVersionUID = 6977402643848374753L;
     /**
      * id : 4028823d5def74b6015def8d218e009b
      * name : 2017-08-18保全车间日常巡检

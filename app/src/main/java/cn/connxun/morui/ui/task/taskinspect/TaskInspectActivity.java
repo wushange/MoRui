@@ -80,7 +80,7 @@ public class TaskInspectActivity extends BaseSwipeBackActivity implements TaskIn
                     } else if (data.getCheckStatus() == TASK_STATUS.CHECKING.value()) {
                         TaskTagactivity.callMe(getContext(), data.getId());
                     } else if (data.getCheckStatus() == TASK_STATUS.CHECKDONE.value()) {
-                        TaskDetailsActivity.callMe(getContext(), data.getId());
+                        TaskDetailsActivity.callMe(getContext(), data);
                     }
                     break;
             }

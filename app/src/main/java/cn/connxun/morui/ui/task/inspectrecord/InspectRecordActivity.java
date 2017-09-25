@@ -49,7 +49,7 @@ public class InspectRecordActivity extends BaseSwipeBackActivity implements Insp
         erlInsRecord.setLayoutManager(new LinearLayoutManager(this));
         erlInsRecord.setAdapterWithProgress(adapter);
         adapter.setOnItemButtonClickListener((v, da) -> {
-            TaskDetailsActivity.callMe(getContext(),da.getId());
+            TaskDetailsActivity.callMe(getContext(),da);
         });
     }
 

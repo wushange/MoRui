@@ -4,8 +4,11 @@ import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Generated;
 
+import java.io.Serializable;
+
 @Entity
-public class TaskSub {
+public class TaskSub implements Serializable{
+    private static final long serialVersionUID = 6977402643848374752L;
     /**
      * id : 4028823d5def74b6015def8d21a100ca
      * taskId : 4028823d5def74b6015def8d218e009b
