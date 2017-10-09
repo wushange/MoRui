@@ -30,6 +30,13 @@
         android:background="@drawable/radios_bg_blue_btn"
         android:text="安全退出"
         android:textColor="@color/white"/>
-
+    <Button
+        android:id="@+id/btn_clear_tasks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/radios_bg_blue_btn"
+        android:text="清除缓存"
+        android:textColor="@color/white"/>
 
 </LinearLayout>

@@ -150,19 +150,14 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <TextView
+                    <Button
+                        android:id="@+id/btn_taskc_abphoto"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="异常照片"/>
-
-                    <ImageView
-                        android:id="@+id/iv_taskc_abimg"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:scaleType="matrix"
-                        />
+                        android:layout_margin="10dp"
+                        android:background="@drawable/radios_bg_blue_btn"
+                        android:text="异常照片"
+                        android:textColor="@color/white"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -170,20 +165,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical">
-
-                    <TextView
+                    <Button
+                        android:id="@+id/btn_taskc_change"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="整改照片"/>
-
-                    <ImageView
-                        android:id="@+id/iv_taskc_img"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:scaleType="matrix"
-                        />
+                        android:layout_margin="10dp"
+                        android:background="@drawable/radios_bg_blue_btn"
+                        android:text="整改照片"
+                        android:textColor="@color/white"/>
                 </LinearLayout>
 
             </LinearLayout>

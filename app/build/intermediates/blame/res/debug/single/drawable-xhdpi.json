@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\github_circle.png",
-        "source": "D:\\connxun\\workspce\\MoRui\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\github_circle.png"
-    },
-    {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_favorite_black_24dp.png",
         "source": "D:\\connxun\\workspce\\MoRui\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_favorite_black_24dp.png"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\github_circle.png",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\github_circle.png"
     },
     {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\shadow_bottom.png",

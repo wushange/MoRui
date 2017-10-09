@@ -15,7 +15,7 @@ import java.lang.Override;
 public class SettingFragment_ViewBinding implements Unbinder {
   private SettingFragment target;
 
-  private View view2131689683;
+  private View view2131689684;
 
   @UiThread
   public SettingFragment_ViewBinding(final SettingFragment target, View source) {
@@ -24,13 +24,14 @@ public class SettingFragment_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.btn_safe_exit, "field 'btnSafeExit' and method 'onViewClicked'");
     target.btnSafeExit = Utils.castView(view, R.id.btn_safe_exit, "field 'btnSafeExit'", Button.class);
-    view2131689683 = view;
+    view2131689684 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
         target.onViewClicked();
       }
     });
+    target.btnClearTasks = Utils.findRequiredViewAsType(source, R.id.btn_clear_tasks, "field 'btnClearTasks'", Button.class);
   }
 
   @Override
@@ -41,8 +42,9 @@ public class SettingFragment_ViewBinding implements Unbinder {
     this.target = null;
 
     target.btnSafeExit = null;
+    target.btnClearTasks = null;
 
-    view2131689683.setOnClickListener(null);
-    view2131689683 = null;
+    view2131689684.setOnClickListener(null);
+    view2131689684 = null;
   }
 }

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.StringUtils;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
@@ -76,21 +77,22 @@ public class HistoryRecordAdapter extends RecyclerArrayAdapter<Task> {
             super.setData(data);
             tvItemTaskName.setText(data.getName());
 
-            int sucount = 0;
-            List<TaskSub> taskSubList= data.getTaskSubList();
-            for (TaskSub sub:taskSubList) {
-                if(sub.getCheckResult().equals(""+ TASKSUB_CHECK_RESULT.NORMAL.value())){
-                    sucount++;
-                }
+            int           sucount     = 0;
+            List<TaskSub> taskSubList = data.getTaskSubList();
+            for (TaskSub sub : taskSubList) {
+                if (!StringUtils.isEmpty(sub.getCheckResult()))
+                    if (sub.getCheckResult().equals("" + TASKSUB_CHECK_RESULT.NORMAL.value())) {
+                        sucount++;
+                    }
             }
-            if(sucount==taskSubList.size()){
+            if (sucount == taskSubList.size()) {
                 tvItemTaskStatus.setText("全部正常");
                 tvItemTaskStatus.setTextColor(Color.GREEN);
-            }else{
-                tvItemTaskStatus.setText("异常点数:" + (taskSubList.size()-sucount));
+            } else {
+                tvItemTaskStatus.setText("异常点数:" + (taskSubList.size() - sucount));
                 tvItemTaskStatus.setTextColor(Color.RED);
             }
-           
+
             tvItemTaskStartdate.setText(data.getStartDate());
             tvItemTaskEndtime.setText(data.getEndDate());
             tvItemTaskShenfen.setText(data.getCheckUserName());

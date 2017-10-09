@@ -15,11 +15,11 @@ import java.lang.Override;
 public class StaticsReportActivity_ViewBinding implements Unbinder {
   private StaticsReportActivity target;
 
-  private View view2131689618;
-
   private View view2131689619;
 
   private View view2131689620;
+
+  private View view2131689621;
 
   @UiThread
   public StaticsReportActivity_ViewBinding(StaticsReportActivity target) {
@@ -33,7 +33,7 @@ public class StaticsReportActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.btn_sta_rep1, "field 'btnStaRep1' and method 'onViewClicked'");
     target.btnStaRep1 = Utils.castView(view, R.id.btn_sta_rep1, "field 'btnStaRep1'", Button.class);
-    view2131689618 = view;
+    view2131689619 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -42,7 +42,7 @@ public class StaticsReportActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.btn_sta_rep2, "field 'btnStaRep2' and method 'onViewClicked'");
     target.btnStaRep2 = Utils.castView(view, R.id.btn_sta_rep2, "field 'btnStaRep2'", Button.class);
-    view2131689619 = view;
+    view2131689620 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -51,7 +51,7 @@ public class StaticsReportActivity_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.btn_sta_rep3, "field 'btnStaRep3' and method 'onViewClicked'");
     target.btnStaRep3 = Utils.castView(view, R.id.btn_sta_rep3, "field 'btnStaRep3'", Button.class);
-    view2131689620 = view;
+    view2131689621 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -71,11 +71,11 @@ public class StaticsReportActivity_ViewBinding implements Unbinder {
     target.btnStaRep2 = null;
     target.btnStaRep3 = null;
 
-    view2131689618.setOnClickListener(null);
-    view2131689618 = null;
     view2131689619.setOnClickListener(null);
     view2131689619 = null;
     view2131689620.setOnClickListener(null);
     view2131689620 = null;
+    view2131689621.setOnClickListener(null);
+    view2131689621 = null;
   }
 }

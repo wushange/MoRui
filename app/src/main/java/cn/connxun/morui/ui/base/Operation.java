@@ -72,7 +72,7 @@ public class Operation {
         mIntent.putExtra(IBaseActivity.ANIMATION_TYPE, animaType);
         mContext.startActivity(mIntent);
 
-        int mAnimIn = 0;
+        int mAnimIn  = 0;
         int mAnimOut = 0;
         switch (animaType) {
             case IBaseActivity.LEFT_RIGHT:
@@ -271,6 +271,7 @@ public class Operation {
                 .onPositive(okCallBack)
                 .show();
     }
+
     /***
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
      * *
@@ -278,7 +279,7 @@ public class Operation {
      * *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
      */
-    public void showBasicDialog(String content, MaterialDialog.SingleButtonCallback okCallBack,MaterialDialog.SingleButtonCallback noCallBack) {
+    public void showBasicDialog(String content, MaterialDialog.SingleButtonCallback okCallBack, MaterialDialog.SingleButtonCallback noCallBack) {
         dismissAlert();
         dialog = new MaterialDialog.Builder(mContext)
                 .content(content)
@@ -289,6 +290,7 @@ public class Operation {
                 .onNegative(noCallBack)
                 .show();
     }
+
     public void showSingleBtnDialog(String content, String postext, MaterialDialog.SingleButtonCallback okCallBack) {
         dismissAlert();
         dialog = new MaterialDialog.Builder(mContext)
@@ -356,7 +358,7 @@ public class Operation {
                 .input(hint, hint, false, inputCallback).show();
     }
 
-    public void showInputDialog(String content, String hint,String text, MaterialDialog.InputCallback inputCallBack) {
+    public void showInputDialog(String content, String hint, String text, MaterialDialog.InputCallback inputCallBack) {
         dismissAlert();
         dialog = new MaterialDialog.Builder(mContext)
                 .content(content)
@@ -367,7 +369,6 @@ public class Operation {
                 .negativeText(R.string.cancel)
                 .input(hint, text, false, inputCallBack).show();
     }
-
 
 
     public void showInputDialog(String title, String content, String hint, String positiveText, String negativeText, int inputMix, int inputMax) {
@@ -494,7 +495,7 @@ public class Operation {
                 .show();
     }
 
-    public void showNotCancelWithContent(String content){
+    public void showNotCancelWithContent(String content) {
         dismissAlert();
         dialog = new MaterialDialog.Builder(mContext)
                 .cancelable(false)
@@ -504,6 +505,7 @@ public class Operation {
                 .show();
 
     }
+
     private void showIndeterminateProgressDialog(boolean horizontal, String content, boolean cancancel) {
         dismissAlert();
         dialog = new MaterialDialog.Builder(mContext)
@@ -535,5 +537,14 @@ public class Operation {
         if (!mContext.isFinishing() && dialog != null && dialog.isShowing())
             dialog.dismiss();
         return new MaterialDialog.Builder(mContext);
+    }
+
+    public void reload() {
+        Intent intent = mContext.getIntent();
+        mContext.overridePendingTransition(0, 0);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        mContext.finish();
+        mContext.overridePendingTransition(0, 0);
+        mContext.startActivity(intent);
     }
 }

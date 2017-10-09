@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png",
-        "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\drawable-hdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
-    },
-    {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png",
         "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\drawable-hdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\drawable-hdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
     },
     {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png",
@@ -44,12 +44,12 @@
         "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\drawable-hdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png"
     },
     {
-        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png",
-        "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
-    },
-    {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\notification_bg_normal.9.png",
         "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_star_black_16dp.png",
@@ -60,16 +60,16 @@
         "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\drawable-hdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
     },
     {
-        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png",
-        "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png"
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ucrop_ic_reset.png",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\9d8bfc31f8b6ebfa6d3100cdc5613584e004dbfc\\output\\res\\drawable-hdpi-v4\\ucrop_ic_reset.png"
     },
     {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\indexable_bg_md_overlay.png",
         "source": "C:\\Users\\wushange\\.android\\build-cache\\272671a4413a875cad4723713013865dd6dad40f\\output\\res\\drawable-hdpi-v4\\indexable_bg_md_overlay.png"
     },
     {
-        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ucrop_ic_reset.png",
-        "source": "C:\\Users\\wushange\\.android\\build-cache\\9d8bfc31f8b6ebfa6d3100cdc5613584e004dbfc\\output\\res\\drawable-hdpi-v4\\ucrop_ic_reset.png"
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png"
     },
     {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",

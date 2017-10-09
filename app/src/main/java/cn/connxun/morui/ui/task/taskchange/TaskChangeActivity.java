@@ -104,8 +104,6 @@ public class TaskChangeActivity extends BaseSwipeBackActivity implements TaskCha
     }
     @Subscribe
     public void update(BaseEvents.CommonEvent commonEvent){
-        if(commonEvent.equals(BaseEvents.CommonEvent.UPDATE_CHANGELIST)){
             presenter.getTaskChangeList();
-        }
     }
 }

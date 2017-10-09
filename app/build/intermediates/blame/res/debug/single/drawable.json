@@ -12,12 +12,12 @@
         "source": "C:\\Users\\wushange\\.android\\build-cache\\90f4158f9c0dcb41a7d42faf9c334d9fd7ebc6fc\\output\\res\\drawable\\abc_edit_text_material.xml"
     },
     {
-        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\indexable_bg_center_overlay.xml",
-        "source": "C:\\Users\\wushange\\.android\\build-cache\\272671a4413a875cad4723713013865dd6dad40f\\output\\res\\drawable\\indexable_bg_center_overlay.xml"
-    },
-    {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\gallery_button_selector.xml",
         "source": "C:\\Users\\wushange\\.android\\build-cache\\ee4b203c436c68f491f47005634fd262f928fe3e\\output\\res\\drawable\\gallery_button_selector.xml"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\indexable_bg_center_overlay.xml",
+        "source": "C:\\Users\\wushange\\.android\\build-cache\\272671a4413a875cad4723713013865dd6dad40f\\output\\res\\drawable\\indexable_bg_center_overlay.xml"
     },
     {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_tile_bg.xml",

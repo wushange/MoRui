@@ -16,28 +16,28 @@
         "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_home_lshjl.png",
-        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\mipmap-xhdpi\\ic_home_lshjl.png"
-    },
-    {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_home_txl.png",
         "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\mipmap-xhdpi\\ic_home_txl.png"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_home_lshjl.png",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\mipmap-xhdpi\\ic_home_lshjl.png"
     },
     {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_home_rwfp.png",
         "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\mipmap-xhdpi\\ic_home_rwfp.png"
     },
     {
-        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\setting_kube.png",
-        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\mipmap-xhdpi\\setting_kube.png"
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\setting.png",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\mipmap-xhdpi\\setting.png"
     },
     {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_home_tzhgg.png",
         "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\mipmap-xhdpi\\ic_home_tzhgg.png"
     },
     {
-        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\setting.png",
-        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\mipmap-xhdpi\\setting.png"
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\setting_kube.png",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\mipmap-xhdpi\\setting_kube.png"
     },
     {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_home_xcshp.png",

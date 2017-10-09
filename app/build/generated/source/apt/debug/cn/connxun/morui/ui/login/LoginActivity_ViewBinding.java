@@ -16,7 +16,7 @@ import java.lang.Override;
 public class LoginActivity_ViewBinding implements Unbinder {
   private LoginActivity target;
 
-  private View view2131689612;
+  private View view2131689613;
 
   @UiThread
   public LoginActivity_ViewBinding(LoginActivity target) {
@@ -31,7 +31,7 @@ public class LoginActivity_ViewBinding implements Unbinder {
     target.headLogo = Utils.findRequiredViewAsType(source, R.id.head_logo, "field 'headLogo'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.login_btn, "field 'loginBtn' and method 'setAppHost'");
     target.loginBtn = Utils.castView(view, R.id.login_btn, "field 'loginBtn'", Button.class);
-    view2131689612 = view;
+    view2131689613 = view;
     view.setOnLongClickListener(new View.OnLongClickListener() {
       @Override
       public boolean onLongClick(View p0) {
@@ -54,7 +54,7 @@ public class LoginActivity_ViewBinding implements Unbinder {
     target.inputName = null;
     target.inputPwd = null;
 
-    view2131689612.setOnLongClickListener(null);
-    view2131689612 = null;
+    view2131689613.setOnLongClickListener(null);
+    view2131689613 = null;
   }
 }

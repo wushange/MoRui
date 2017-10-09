@@ -53,6 +53,7 @@
         <activity android:name=".ui.task.scenevideo.SceneVideoActivity"/>
         <activity android:name=".ui.task.stacalreport.StaticsReportActivity"/>
         <activity android:name=".ui.task.synctask.SyncActivity"/>
+        <activity android:name=".ui.imageview.ImagePreViewActivity"/>
         <activity android:name=".ui.task.tasktag.TaskTagactivity">
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED"/>

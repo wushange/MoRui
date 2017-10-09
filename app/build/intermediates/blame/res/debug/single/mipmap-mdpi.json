@@ -4,12 +4,12 @@
         "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\mipmap-mdpi\\ic_tree_ex.png"
     },
     {
-        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher_round.png",
-        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_tree_ec.png",
         "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\mipmap-mdpi\\ic_tree_ec.png"
+    },
+    {
+        "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher_round.png",
+        "source": "D:\\connxun\\workspce\\MoRui\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
         "merged": "D:\\connxun\\workspce\\MoRui\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher.png",

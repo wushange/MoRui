@@ -10,5 +10,14 @@
         sha1="e58a5f3e98fddc1752eb23c37db5e4b8fc174fe3">
         <dex dex="D:\connxun\workspce\MoRui\app\build\intermediates\transforms\dex\debug\folders\1000\2\tbs_sdk_thirdapp_v3.2.0.1104_43200_sharewithdownload_withfilereader_withoutGame_obfs_20170609_115346_f90908266e521ab69b1f1364b9c9a595186a7620\classes.dex" />
     </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\wushange\.android\build-cache\c554fe623c0278f424938e3f263162e63cf48c79\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="2115d9dd8708cb48e7481b1259ae9f00dc16a032">
+        <dex dex="D:\connxun\workspce\MoRui\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5f9f636eafecadcfe5ced74cf5ee67cb09e062e3\classes.dex" />
+    </item>
 
 </items>

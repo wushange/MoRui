@@ -181,4 +181,14 @@ public class TaskStroge {
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
 
     }
+    /**
+     * 删除计划任务
+     *
+     */
+    public void deleteAllTasks() {
+        taskDao.deleteAll();
+        taskSubDao.deleteAll();
+        task_allotDao.deleteAll();
+
+    }
 }

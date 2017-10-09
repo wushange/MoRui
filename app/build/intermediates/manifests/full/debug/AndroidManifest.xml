@@ -63,6 +63,7 @@
         <activity android:name="cn.connxun.morui.ui.task.scenevideo.SceneVideoActivity" />
         <activity android:name="cn.connxun.morui.ui.task.stacalreport.StaticsReportActivity" />
         <activity android:name="cn.connxun.morui.ui.task.synctask.SyncActivity" />
+        <activity android:name="cn.connxun.morui.ui.imageview.ImagePreViewActivity" />
         <activity android:name="cn.connxun.morui.ui.task.tasktag.TaskTagactivity" >
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />

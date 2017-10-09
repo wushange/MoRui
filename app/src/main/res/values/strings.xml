@@ -3,7 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-
+    <string name="host_string">http://%1$s:%2$s/moris</string>
 
 
     <string name="developing">工程师正在拼命开发中,\n敬请期待……</string>

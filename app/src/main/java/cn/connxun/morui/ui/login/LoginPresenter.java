@@ -2,12 +2,14 @@ package cn.connxun.morui.ui.login;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.NetworkUtils;
+import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.StringUtils;
 
 import javax.inject.Inject;
 
 import cn.connxun.morui.api.TokenApi;
 import cn.connxun.morui.components.retrofit.RequestHelper;
+import cn.connxun.morui.constants.Constants;
 import cn.connxun.morui.data.local.UserStorge;
 import cn.connxun.morui.di.PerActivity;
 import cn.connxun.morui.entity.User;
@@ -70,6 +72,8 @@ public class LoginPresenter extends BasePresenter<LoginContract.LoginView> imple
                 user.setRealPwd(userPwd);
                 userStorge.login(user);
                 mView.loginSuccess(user);
+                SPUtils.getInstance().put(Constants.USER_NAME,userName);
+                SPUtils.getInstance().put(Constants.USER_PWD,userPwd);
                 mView.endLoading();
             }
 

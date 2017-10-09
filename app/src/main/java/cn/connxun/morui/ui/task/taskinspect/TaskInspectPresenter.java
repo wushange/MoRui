@@ -157,6 +157,7 @@ public class TaskInspectPresenter extends BasePresenter<TaskInspectContract.Task
             @Override
             public void onNext(@NonNull List<Task> tasks) {
                 ToastUtils.showShort("下载成功");
+                mView.endLoading();
                 stroge.saveAllTask(tasks).subscribe(aBoolean -> 
                         stroge.getAllTask_OffLine().subscribe(tasks1 ->
                                 mView.showList(tasks1), throwable -> mView.onError(throwable.getMessage())));

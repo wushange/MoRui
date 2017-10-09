@@ -4,21 +4,17 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.StringUtils;
-import com.bumptech.glide.Glide;
 import com.orhanobut.logger.Logger;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import org.greenrobot.eventbus.EventBus;
 
-import java.io.File;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -31,6 +27,7 @@ import cn.connxun.morui.constants.Constants;
 import cn.connxun.morui.entity.InspectionRectification;
 import cn.connxun.morui.ui.base.BaseActivity;
 import cn.connxun.morui.ui.base.BaseEvents;
+import cn.connxun.morui.ui.imageview.ImagePreViewActivity;
 import cn.connxun.morui.utils.ImageUtils;
 import cn.finalteam.rxgalleryfinal.RxGalleryFinalApi;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -42,21 +39,21 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 public class TaskChangeDetailActivity extends BaseActivity implements TaskChangeContract.TaskChangeView {
     private static final String TASK_ID = "TASK_ID";
     @BindView(R.id.tv_taskc_name)
-    TextView  tvTaskcName;
+    TextView tvTaskcName;
     @BindView(R.id.tv_taskc_pname)
-    TextView  tvTaskcPname;
+    TextView tvTaskcPname;
     @BindView(R.id.tv_taskc_dname)
-    TextView  tvTaskcDname;
+    TextView tvTaskcDname;
     @BindView(R.id.tv_taskc_money)
-    TextView  tvTaskcMoney;
+    TextView tvTaskcMoney;
     @BindView(R.id.tv_taskc_postname)
-    TextView  tvTaskcPostname;
+    TextView tvTaskcPostname;
     @BindView(R.id.btn_taskc_takephoto)
-    Button    btnTaskcTakephoto;
-    @BindView(R.id.iv_taskc_img)
-    ImageView ivTaskcImg;
-    @BindView(R.id.iv_taskc_abimg)
-    ImageView ivTaskcAbimg;
+    Button   btnTaskcTakephoto;
+    @BindView(R.id.btn_taskc_abphoto)
+    Button   btnTaskcAbphoto;
+    @BindView(R.id.btn_taskc_change)
+    Button   btnTaskcChange;
 
     public static void callMe(Context context, InspectionRectification taskId) {
         Intent intent = new Intent(context, TaskChangeDetailActivity.class);
@@ -92,12 +89,17 @@ public class TaskChangeDetailActivity extends BaseActivity implements TaskChange
         } else {
             btnTaskcTakephoto.setVisibility(View.GONE);
         }
-        if (!StringUtils.isEmpty(mTask.getAbnormalityImg())) {
-            Glide.with(getContext()).load(Constants.HOST+"/upload/"+mTask.getAbnormalityImg()).into(ivTaskcAbimg);
-        }
-        if (!StringUtils.isEmpty(mTask.getRectificationImg())) {
-            Glide.with(getContext()).load(Constants.HOST+"/upload/"+mTask.getRectificationImg()).into(ivTaskcImg);
-        }
+        btnTaskcAbphoto.setOnClickListener(v -> {
+            if (!StringUtils.isEmpty(mTask.getAbnormalityImg())) {
+                ImagePreViewActivity.callMe(getContext(), Constants.HOST + "/upload/" + mTask.getAbnormalityImg());
+            }
+        });
+        btnTaskcChange.setOnClickListener(v -> {
+            if (!StringUtils.isEmpty(mTask.getRectificationImg())) {
+                ImagePreViewActivity.callMe(getContext(), Constants.HOST + "/upload/" + mTask.getRectificationImg());
+            }
+        });
+        
         btnTaskcTakephoto.setOnClickListener(v -> takePhoto());
     }
 
@@ -125,7 +127,6 @@ public class TaskChangeDetailActivity extends BaseActivity implements TaskChange
             Logger.e("拍照OK，图片路径:" + imgPath);
             Toast("采集照片成功！");
             RxUtil.runOnIoThreadTask().observeOn(AndroidSchedulers.mainThread()).subscribe(o -> {
-                ivTaskcImg.setImageURI(Uri.fromFile(new File(imgPath)));
                 mTask.setRectificationImg(ImageUtils.bitmapToString(imgPath));
                 showProgressDialog("整改中...");
                 presenter.changeTask();
@@ -167,8 +168,9 @@ public class TaskChangeDetailActivity extends BaseActivity implements TaskChange
     @Override
     public void changSuccess() {
         Toast("整改成功！");
-        dissmissDialog();
         EventBus.getDefault().postSticky(BaseEvents.CommonEvent.UPDATE_CHANGELIST);
+        dissmissDialog();
+        
 
     }
 

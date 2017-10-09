@@ -139,7 +139,7 @@ public final class DaggerFragmentComponent implements FragmentComponent {
             homeMenuAdapterProvider, getUserStorgeProvider, taskInspectPresenterProvider);
 
     this.settingFragmentMembersInjector =
-        SettingFragment_MembersInjector.create(getUserStorgeProvider);
+        SettingFragment_MembersInjector.create(getUserStorgeProvider, getTaskStrogeProvider);
 
     this.taskAllotFragmentMembersInjector =
         TaskAllotFragment_MembersInjector.create(

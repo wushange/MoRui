@@ -46,8 +46,10 @@ public class TaskAllotPresenter extends BasePresenter<TaskAllotContract.TaskAllo
 
             @Override
             public void onNext(@NonNull ListBean<Task_Allot> taskListBean) {
-                mView.showList(taskListBean.getList());
-                taskStroge.saveAllAllotTask(taskListBean.getList());
+                if (taskListBean.getList() != null) {
+                    mView.showList(taskListBean.getList());
+                    taskStroge.saveAllAllotTask(taskListBean.getList());
+                }
             }
 
             @Override
