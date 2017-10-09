@@ -29,7 +29,8 @@ public class TaskChangePresenter extends BasePresenter<TaskChangeContract.TaskCh
 
     @Override
     public void getTaskChangeList() {
-        mDisposable.add(api.getList().subscribe(inspectionRectifications -> mView.showList(inspectionRectifications),
+        mDisposable.add(api.getList().subscribe(inspectionRectifications -> 
+                        mView.showList(inspectionRectifications),
                 throwable -> mView.onError(throwable.getMessage())));
 
     }
@@ -39,7 +40,6 @@ public class TaskChangePresenter extends BasePresenter<TaskChangeContract.TaskCh
         mDisposable.add(api.getDetail(mView.getTaskCId()).subscribe(stringResponse -> {
             Logger.e("---" + stringResponse);
         }, throwable -> {
-
             mView.onError(throwable.getMessage());
         }));
 

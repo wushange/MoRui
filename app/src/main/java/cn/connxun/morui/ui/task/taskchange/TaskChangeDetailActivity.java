@@ -74,6 +74,7 @@ public class TaskChangeDetailActivity extends BaseActivity implements TaskChange
     @Override
     public void initParms(Bundle parms) {
         mTask = (InspectionRectification) parms.get(TASK_ID);
+        
     }
 
     @Override
@@ -97,6 +98,8 @@ public class TaskChangeDetailActivity extends BaseActivity implements TaskChange
         btnTaskcChange.setOnClickListener(v -> {
             if (!StringUtils.isEmpty(mTask.getRectificationImg())) {
                 ImagePreViewActivity.callMe(getContext(), Constants.HOST + "/upload/" + mTask.getRectificationImg());
+            }else{
+                Toast("暂无图片");
             }
         });
         

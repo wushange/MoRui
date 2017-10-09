@@ -206,6 +206,7 @@ public class TaskStepActivity extends BaseSwipeBackActivity implements TaskStepC
 
     @Override
     public void completeTask(Task bean) {
+        //// TODO: 2017/10/9  如果是最后一个任务 则提示完成任务。回到列表。并且置空 检查状态。  
         mOperation.showBasicDialog("是否继续巡检？", (dialog, which) -> {
             dialog.dismiss();
             EventBus.getDefault().postSticky(BaseEvents.CommonEvent.UPDATE_LIST);

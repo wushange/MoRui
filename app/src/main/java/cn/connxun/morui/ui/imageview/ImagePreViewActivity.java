@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
+import com.github.chrisbanes.photoview.OnViewTapListener;
 import com.github.chrisbanes.photoview.PhotoView;
 
 import butterknife.BindView;
@@ -47,6 +48,12 @@ public class ImagePreViewActivity extends BaseActivity {
         if (imgPath != null) {
             Glide.with(getContext()).load(imgPath)
                     .into(ivView);
+            ivView.setOnViewTapListener(new OnViewTapListener() {
+                @Override
+                public void onViewTap(View view, float x, float y) {
+                    finish();
+                }
+            });
         }
     }
 
