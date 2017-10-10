@@ -27,6 +27,8 @@ public class Constants {
     public static String USER_PWD  = "USER_PWD";
     public static String USER_ID   = "USER_ID";
 
+    
+    public static String TASK_CHECK_STATUS = "TASK_CHECK_STATUS";
 
     public static final String ROOT_PATH = SDCardUtils.getSDCardPath() + "MoRui" + File.separator;
 

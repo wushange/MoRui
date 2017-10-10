@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.blankj.utilcode.util.NetworkUtils;
+import com.blankj.utilcode.util.SPUtils;
+import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.TimeUtils;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 
@@ -21,6 +23,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import cn.connxun.morui.R;
+import cn.connxun.morui.constants.Constants;
 import cn.connxun.morui.constants.enums.TASK_STATUS;
 import cn.connxun.morui.db.TaskDao;
 import cn.connxun.morui.entity.Task;
@@ -72,13 +75,19 @@ public class TaskInspectActivity extends BaseSwipeBackActivity implements TaskIn
                     presenter.confirmTask(data, pos);
                     break;
                 case R.id.btn_taskoper:
-                    if (data.getCheckStatus() == TASK_STATUS.NOCHECK.value()) {
+                    String lastCheckTaskId  = SPUtils.getInstance().getString(Constants.TASK_CHECK_STATUS);
+                    if (data.getCheckStatus() == TASK_STATUS.NOCHECK.value() || data.getCheckStatus() == TASK_STATUS.CHECKING.value()) {
+                        if(!StringUtils.isEmpty(lastCheckTaskId)){
+                            if(!lastCheckTaskId.equals(data.getId())){
+                                mOperation.showBasicDialog("正在进行其他任务",null);
+                                return;
+                            }
+                        }
                         data.setCheckStatus(TASK_STATUS.CHECKING.value());
                         taskDao.update(data);
                         adapter.notifyDataSetChanged();
                         TaskTagactivity.callMe(getContext(), data.getId());
-                    } else if (data.getCheckStatus() == TASK_STATUS.CHECKING.value()) {
-                        TaskTagactivity.callMe(getContext(), data.getId());
+                        SPUtils.getInstance().put(Constants.TASK_CHECK_STATUS,data.getId());
                     } else if (data.getCheckStatus() == TASK_STATUS.CHECKDONE.value()) {
                         TaskDetailsActivity.callMe(getContext(), data);
                     }

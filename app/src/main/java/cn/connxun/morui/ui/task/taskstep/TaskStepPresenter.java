@@ -4,6 +4,7 @@ import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.TimeUtils;
 import com.blankj.utilcode.util.ToastUtils;
+import com.facebook.stetho.common.LogUtil;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -22,7 +23,6 @@ import cn.connxun.morui.data.local.UserStorge;
 import cn.connxun.morui.db.TaskDao;
 import cn.connxun.morui.db.TaskSubDao;
 import cn.connxun.morui.di.PerActivity;
-import cn.connxun.morui.entity.Task;
 import cn.connxun.morui.entity.TaskSub;
 import cn.connxun.morui.ui.base.BaseEvents;
 import cn.connxun.morui.ui.base.BasePresenter;
@@ -89,9 +89,14 @@ public class TaskStepPresenter extends BasePresenter<TaskStepContract.TaskStepVi
 
     @Override
     public void completeTask() {
-        Task allotTask = allotTaskDao.queryBuilder().where(TaskDao.Properties.Id.eq(mView.getThisTaskId())).unique();
-        allotTaskDao.update(allotTask);
-        mView.completeTask(allotTask);
+        int completeSize = subListBeanDao.queryBuilder().where(TaskSubDao.Properties.TaskId.eq(mView.getThisTaskId()))
+                .where(TaskSubDao.Properties.CheckResult.isNull()).list().size();
+        if (completeSize == 0) {
+            LogUtil.e("--全部完成--");
+            mView.completeAllTask();
+            return;
+        }
+        mView.completeTask();
         EventBus.getDefault().postSticky(BaseEvents.CommonEvent.UPDATE_LIST);
     }
 
@@ -177,7 +182,7 @@ public class TaskStepPresenter extends BasePresenter<TaskStepContract.TaskStepVi
                         + "\n--Origen--" + mTask.getOrangeWarning()
                         + "\n--MinValue--" + mTask.getMinValue()
                         + "\n--MaxValue--" + mTask.getBigValue());
-        
+
         if (!StringUtils.isEmpty(mTask.getRedWarning()) && !StringUtils.isEmpty(mTask.getOrangeWarning())) {
             if (rangeInDefined(input, Double.parseDouble(mTask.getRedWarning()), Double.parseDouble(mTask.getOrangeWarning()))) {
                 mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
@@ -192,7 +197,7 @@ public class TaskStepPresenter extends BasePresenter<TaskStepContract.TaskStepVi
                 return;
             }
         }
-        if( Double.parseDouble(mTask.getBigValue())- Double.parseDouble(mTask.getMinValue())>0){
+        if (Double.parseDouble(mTask.getBigValue()) - Double.parseDouble(mTask.getMinValue()) > 0) {
             if (input < Double.parseDouble(mTask.getMinValue())) {
                 LogUtils.e("小于最小值"); //   yello-min
                 mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
@@ -203,7 +208,7 @@ public class TaskStepPresenter extends BasePresenter<TaskStepContract.TaskStepVi
                 mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
                 return;
             }
-        }else{
+        } else {
             if (input > Double.parseDouble(mTask.getMinValue())) {
                 LogUtils.e("大于最小值"); //   yello-min
                 mTask.setCheckResult(TASKSUB_CHECK_RESULT.ABNORMAL.value() + "");
@@ -215,7 +220,7 @@ public class TaskStepPresenter extends BasePresenter<TaskStepContract.TaskStepVi
                 return;
             }
         }
-      
+
         mTask.setCheckResult(TASKSUB_CHECK_RESULT.NORMAL.value() + "");
     }
 

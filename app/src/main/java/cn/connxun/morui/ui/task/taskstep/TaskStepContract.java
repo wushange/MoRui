@@ -1,7 +1,6 @@
 package cn.connxun.morui.ui.task.taskstep;
 
 
-import cn.connxun.morui.entity.Task;
 import cn.connxun.morui.entity.TaskSub;
 import cn.connxun.morui.ui.base.BasePView;
 
@@ -19,13 +18,16 @@ public interface TaskStepContract {
         String getTagId();
 
         void setCurrIndex(int index);
+
         void indexAdd();
 
         void indexBack();
 
         String getThisTaskId();
 
-        void completeTask(Task bean);
+        void completeTask();
+
+        void completeAllTask();
 
         void showConPlan();
 
